@@ -3,121 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Alex Montes</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Mi Portafolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Sobre Mí</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body class="bg-gray-900 text-white font-sans">
 
-    <header class="bg-primary text-white text-center py-5">
-        <div class="container">
-            <h1 class="display-4">Bienvenido a mi Portafolio</h1>
-            <p class="lead">Soy un apasionado desarrollador con experiencia en diversas tecnologías.</p>
-        </div>
-    </header>
+   <!-- Hero Section -->
+<header class="bg-gray-800 text-white py-20 text-center">
+    <img src="95830903.png" alt="Tu Foto" class="w-32 h-32 mx-auto mb-6 rounded-full">
+    <div class="mt-8">
+        <h2 class="text-3xl font-semibold">
+            <span class="typed-text"></span>
+            <span class="cursor">&nbsp;</span>
+        </h2>
+    </div>
+</header>
 
-    <section id="about" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2 class="display-4">Sobre Mí</h2>
-                    <p class="lead">Soy un desarrollador comprometido con la creación de soluciones innovadoras...</p>
-                </div>
-                <div class="col-lg-6">
-                    <img src="profile.jpg" alt="Foto de Perfil" class="img-fluid rounded-circle">
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+    // Typed.js animation
+    const typedText = document.querySelector('.typed-text');
+    const cursor = document.querySelector('.cursor');
 
-    <section id="projects" class="bg-light py-5">
-        <div class="container">
-            <h2 class="display-4 text-center">Mis Proyectos</h2>
-            <div class="row mt-4">
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="project1.jpg" alt="Proyecto 1" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Proyecto 1</h5>
-                            <p class="card-text">Descripción breve del proyecto...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="project2.jpg" alt="Proyecto 2" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Proyecto 2</h5>
-                            <p class="card-text">Descripción breve del proyecto...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="project3.jpg" alt="Proyecto 3" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Proyecto 3</h5>
-                            <p class="card-text">Descripción breve del proyecto...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    const textArray = ["¡Hola! Soy Alex Montes,", "Desarrollador de Software,", "¡Bienvenido a mi Portafolio!"];
+    const typingDelay = 50;  // Valor más bajo para una escritura más rápida
+    const erasingDelay = 25; // Valor más bajo para una escritura más rápida
+    const newTextDelay = 1500; // Valor más bajo para cambiar de texto más rápido
+    let textArrayIndex = 0;
+    let charIndex = 0;
 
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="display-4 text-center">Contáctame</h2>
-            <div class="row mt-4">
-                <div class="col-md-6 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="correo" class="form-label">Correo Electrónico</label>
-                                    <input type="email" class="form-control" id="correo" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="mensaje" class="form-label">Mensaje</label>
-                                    <textarea class="form-control" id="mensaje" rows="4" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                            </form>
-                        </div>
-                    </div>
+    function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+            typedText.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            setTimeout(erase, newTextDelay);
+        }
+    }
+
+    function erase() {
+        if (charIndex > 0) {
+            typedText.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            textArrayIndex++;
+            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+            setTimeout(type, typingDelay + 1100);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (textArray.length) setTimeout(type, newTextDelay + 250);
+    });
+</script>
+
+
+    <!-- Projects Section -->
+    <section class="bg-gray-900 py-20">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-10 text-center">Mis Proyectos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Project Cards -->
+                <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl">
+                    <img src="Logo_centrado_de_la_Agencia_Espacial_Mexicana.svg.png" alt="Agencia Espacial Mexicana" class="w-full h-40 object-cover mb-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Sistema de Control de Personal</h3>
+                    <p class="text-gray-300">Trabajé con la Agencia Espacial Mexicana para crear un sistema de seguridad y control de personal.</p>
+                    <p>Sitio confidencial</p>
                 </div>
+                <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl">
+                    <img src="izc.jpg" alt="Plataforma de Eventos Culturales" class="w-full h-40 object-cover mb-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Plataforma de Eventos Culturales para el Estado de Zacatecas.</h3>
+                    <p class="text-gray-300">En desarrollo.</p>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl">
+                    <img src="logo-nuevo.png" alt="App de Citas de Fisioterapia" class="w-full h-40 object-cover mb-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">App de Citas de Fisioterapia</h3>
+                    <p class="text-gray-300">En conjunto con mi equipo, creamos una app de citas de fisioterapia para la Universidad Tecnológica del Estado de Zacatecas.</p>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl">
+                    <img src="281978.jpg" alt="Plataforma de Arte" class="w-full h-40 object-cover mb-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Plataforma de ArteMex</h3>
+                    <p class="text-gray-300">En desarrollo.</p>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl">
+                    <img src=""  alt="Página Web Grupo Juvenil Católico" class="w-full h-40 object-cover mb-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Página Web Grupo Juvenil Católico</h3>
+                    <p class="text-gray-300">Creé una página web para un grupo juvenil católico en Miguel Auza, Zacatecas.</p>
+                    <a href="https://comunidad-kyrios.netlify.app/" target="_blank" class="mt-4 inline-block text-blue-500 hover:underline">Ver</a>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl">
+                    <img src="nasa.jpeg"  alt="Página Web Grupo Juvenil Católico" class="w-full h-40 object-cover mb-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Proyecto Personal</h3>
+                    <p class="text-gray-300">Creé una página web para buscar imagenes de la NASA.</p>
+                    <a href="https://nasa-alex.netlify.app/" target="_blank" class="mt-4 inline-block text-blue-500 hover:underline">Ver</a>
+                </div>
+                <!-- Agrega más proyectos aquí -->
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2023 Mi Portafolio</p>
+    <!-- About Section -->
+<section class="bg-gray-800 py-20">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8">Acerca de Mí</h2>
+        <p class="text-lg">Soy un apasionado desarrollador de software y estudiante de Ingeniería en Software. Mi pasión por la tecnología me ha llevado a trabajar en diversos proyectos, desde aplicaciones web hasta soluciones empresariales.</p>
+        
+        <div class="mt-10">
+            <h3 class="text-xl font-semibold mb-2">Educación</h3>
+            <p class="text-gray-400">Ingeniería en Software, Universidad Tecnológica del Estado de Zacatecas</p>
+        </div>
+        
+        <div class="mt-6">
+            <h3 class="text-xl font-semibold mb-2">Experiencia</h3>
+            <p class="text-gray-400">He trabajado en organizaciones gubernamentales y privadas, contribuyendo al desarrollo de soluciones tecnológicas.</p>
+        </div>
+        
+        <div class="mt-6">
+            <h3 class="text-xl font-semibold mb-2">Contacto</h3>
+            <p class="text-gray-400">Correo electrónico: alejandromontes0421a@gmail.com</p>
+            <p class="text-gray-400">Teléfono: 492 119 3883  </p>
+            <p class="text-gray-400">Ciudad: Zacatecas, Zacatecas</p>
+            <p class="text-gray-400">Redes Sociales: <a href="https://github.com/AlepsMM03" target="_blank" class="text-blue-500 hover:underline">GitHub</a></p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-700 py-8 text-center">
+        <p class="text-gray-500">&copy; 2023 Alex Montes. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
