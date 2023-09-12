@@ -33,12 +33,47 @@
                     <p class="text-gray-300">Lidero un equipo para desarrollar una empresa de software llamada "Devs Niños".</p>
                     <a href="https://www.facebook.com/profile.php?id=100090995954134" target="_blank" class="mt-4 inline-block text-blue-500 hover:underline">Ver</a>
                 </div>
-                <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl">
+                <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl relative">
                     <img src="Logo_centrado_de_la_Agencia_Espacial_Mexicana.svg.png" alt="Agencia Espacial Mexicana" class="w-full h-40 object-cover mb-6 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2">Sistema de Control de Personal</h3>
                     <p class="text-gray-300">Trabajé con la Agencia Espacial Mexicana para crear un sistema de seguridad y control de personal.</p>
                     <p>Sitio confidencial</p>
+                    <br>
+                    <!-- Botón para abrir el modal -->
+                    <button id="openModal" class="absolute bottom-0 right-0 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 mr-4">Documento que me avala</button>
+                
+                    <!-- Modal con la imagen -->
+                    <div id="myModal" class="modal hidden fixed inset-0 z-50 flex justify-center items-center bg-gray-800 bg-opacity-80">
+                        <div class="modal-dialog w-full max-w-screen-lg mx-auto my-12">
+                            <div class="modal-content bg-white p-4 rounded-lg">
+                                <span class="modal-close cursor-pointer absolute top-0 right-0 p-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </span>
+                                <img src="aem.jpg" alt="Agencia Espacial Mexicana" class="w-full">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+                <!-- JavaScript para abrir y cerrar el modal -->
+                <script>
+                    const openModalButton = document.getElementById('openModal');
+                    const modal = document.getElementById('myModal');
+                    const closeModalButton = modal.querySelector('.modal-close');
+                
+                    openModalButton.addEventListener('click', () => {
+                        modal.classList.remove('hidden');
+                    });
+                
+                    closeModalButton.addEventListener('click', () => {
+                        modal.classList.add('hidden');
+                    });
+                </script>
+                
+                
+                
                 <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl">
                     <img src="izc.jpg" alt="Plataforma de Eventos Culturales" class="w-full h-40 object-cover mb-6 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2">Plataforma de Eventos Culturales para el Estado de Zacatecas.</h3>
