@@ -14,50 +14,11 @@
     <img src="95830903.png" alt="Tu Foto" class="w-32 h-32 mx-auto mb-6 rounded-full">
     <div class="mt-8">
         <h2 class="text-3xl font-semibold">
-            <span class="typed-text"></span>
-            <span class="cursor">&nbsp;</span>
+            <span class="typed-text">Alex Montes</span><br>
+            <span class="cursor">CEO - Devs Niños</span>
         </h2>
     </div>
 </header>
-
-<script>
-    // Typed.js animation
-    const typedText = document.querySelector('.typed-text');
-    const cursor = document.querySelector('.cursor');
-
-    const textArray = ["¡Hola! Soy Alex Montes,", "Desarrollador de Software,", "¡Bienvenido a mi Portafolio!"];
-    const typingDelay = 50;  // Valor más bajo para una escritura más rápida
-    const erasingDelay = 25; // Valor más bajo para una escritura más rápida
-    const newTextDelay = 1500; // Valor más bajo para cambiar de texto más rápido
-    let textArrayIndex = 0;
-    let charIndex = 0;
-
-    function type() {
-        if (charIndex < textArray[textArrayIndex].length) {
-            typedText.textContent += textArray[textArrayIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(type, typingDelay);
-        } else {
-            setTimeout(erase, newTextDelay);
-        }
-    }
-
-    function erase() {
-        if (charIndex > 0) {
-            typedText.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-            charIndex--;
-            setTimeout(erase, erasingDelay);
-        } else {
-            textArrayIndex++;
-            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-            setTimeout(type, typingDelay + 1100);
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        if (textArray.length) setTimeout(type, newTextDelay + 250);
-    });
-</script>
 
 
     <!-- Projects Section -->
