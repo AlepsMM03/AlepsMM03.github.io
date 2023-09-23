@@ -1,102 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Devs Niños</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devs Niños - Desarrollo de Software</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
-
-  <!-- Navbar -->
-  <nav class="bg-blue-500 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <a href="#" class="flex items-center text-white text-xl font-semibold">
-        <img src="/icon-alex.png" alt="Logo Devs Niños" class="h-8 w-8 mr-2">
-        Devs Niños
-      </a>
-      <ul class="space-x-4">
-        <li class="inline-block"><a href="#" class="text-white hover:text-gray-200">Inicio</a></li>
-        <li class="inline-block"><a href="#" class="text-white hover:text-gray-200">Servicios</a></li>
-        <li class="inline-block"><a href="#" class="text-white hover:text-gray-200">Acerca de</a></li>
-        <li class="inline-block"><a href="#" class="text-white hover:text-gray-200">Portafolio</a></li>
-        <li class="inline-block"><a href="#" class="text-white hover:text-gray-200">Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="bg-blue-200 py-20">
-    <div class="container mx-auto text-center">
-      <h1 class="text-4xl font-semibold mb-4">Bienvenidos a Devs Niños</h1>
-      <p class="text-lg text-gray-700">Impulsando Soluciones Tecnológicas para Empresas</p>
-      <a href="#" class="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg">Ver Nuestros Servicios</a>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="py-16">
-    <div class="container mx-auto text-center">
-      <h2 class="text-2xl font-semibold mb-6">Nuestros Servicios</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-6 bg-white rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-2">Desarrollo de Software a Medida</h3>
-          <p class="text-gray-700">Creamos soluciones personalizadas para las necesidades de tu empresa.</p>
+<body class="bg-gray-100 font-sans">
+    <!-- Barra de navegación -->
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <h1 class="text-white text-2xl font-semibold">Devs Niños</h1>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-white">Inicio</a></li>
+                    <li><a href="#nosotros" class="text-white">Nosotros</a></li>
+                    <li><a href="#servicios" class="text-white">Servicios</a></li>
+                    <li><a href="#portafolio" class="text-white">Portafolio</a></li>
+                    <li><a href="#contacto" class="text-white">Contacto</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="p-6 bg-white rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-2">Consultoría Tecnológica</h3>
-          <p class="text-gray-700">Asesoramos en la implementación de tecnologías para optimizar tus procesos.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-2">Mantenimiento de Software</h3>
-          <p class="text-gray-700">Brindamos soporte y actualizaciones para garantizar el funcionamiento continuo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- About Section -->
-  <section class="bg-gray-200 py-16">
-    <div class="container mx-auto text-center">
-      <h2 class="text-2xl font-semibold mb-6">Acerca de Nosotros</h2>
-      <p class="text-gray-700">En Devs Niños, estamos comprometidos con brindar soluciones tecnológicas de calidad para empresas. Con años de experiencia en la industria, nuestro equipo de expertos trabaja para convertir tus ideas en realidad.</p>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section class="py-16">
-    <div class="container mx-auto text-center">
-      <h2 class="text-2xl font-semibold mb-6">Nuestro Portafolio</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-6 bg-white rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-2">Sistema de Gestión Empresarial</h3>
-          <p class="text-gray-700">Desarrollo de un software de gestión integral para una empresa líder en su industria.</p>
+    <!-- Encabezado -->
+    <header class="bg-blue-900 text-white py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold">Transformando Ideas en Soluciones</h2>
+            <p class="mt-4 text-lg">Somos un equipo de estudiantes apasionados por la tecnología y la innovación.</p>
+            <a href="#contacto" class="mt-6 bg-yellow-500 hover:bg-yellow-600 text-blue-900 text-lg font-semibold py-2 px-6 rounded-full inline-block transition duration-300">Contáctanos</a>
         </div>
-        <div class="p-6 bg-white rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-2">Plataforma E-commerce Personalizada</h3>
-          <p class="text-gray-700">Creación de una plataforma de comercio electrónico adaptada a las necesidades del cliente.</p>
+    </header>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-8">Nosotros</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold">Misión</h3>
+                    <p class="mt-4 text-gray-600">Nuestra misión es crear soluciones creativas e innovadoras a los procesos de negocio en los sectores académico y comercial, contribuyendo al éxito de nuestros clientes.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Visión</h3>
+                    <p class="mt-4 text-gray-600">Buscamos ser líderes en el desarrollo de sistemas tecnológicos que impulsen la economía y la educación, mejorando constantemente nuestros productos y servicios.</p>
+                </div>
+            </div>
         </div>
-        <div class="p-6 bg-white rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-2">Aplicación Móvil Innovadora</h3>
-          <p class="text-gray-700">Diseño y desarrollo de una aplicación móvil que revolucionó la experiencia del usuario.</p>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="bg-gray-200 py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-8">Nuestros Servicios</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-blue-500">Desarrollo de Sistemas</h3>
+                    <p class="mt-4 text-gray-600">Creamos sistemas para instituciones académicas y empresas, optimizando procesos y mejorando la eficiencia.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-blue-500">Investigación de Mercado</h3>
+                    <p class="mt-4 text-gray-600">Realizamos investigaciones de mercado para potenciar el comercio, automatizando y digitalizando procesos de negocio.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-blue-500">Soporte Técnico</h3>
+                    <p class="mt-4 text-gray-600">Ofrecemos soporte técnico de alta calidad para garantizar el éxito de nuestros clientes.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section class="bg-gray-200 py-16">
-    <div class="container mx-auto text-center">
-      <h2 class="text-2xl font-semibold mb-6">Contáctanos</h2>
-      <p class="text-gray-700">¿Interesado en nuestras soluciones? ¡Ponte en contacto con nosotros!</p>
-      <a href="#" class="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg">Hablemos</a>
-    </div>
-  </section>
+    <!-- Sección Portafolio -->
+    <section id="portafolio" class="py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-8">Portafolio de Proyectos</h2>
+            <!-- Ejemplo de proyecto -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold text-blue-500">Proyecto 1</h3>
+                <p class="mt-4 text-gray-600">Descripción del proyecto 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <!-- Ejemplo de proyecto -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold text-blue-500">Proyecto 2</h3>
+                <p class="mt-4 text-gray-600">Descripción del proyecto 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <!-- Ejemplo de proyecto -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-500">Proyecto 3</h3>
+                <p class="mt-4 text-gray-600">Descripción del proyecto 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-blue-500 py-4 text-center text-white">
-    <p>&copy; 2023 Devs Niños - Impulsando Innovación</p>
-  </footer>
+    <!-- Sección Contacto -->
+    <section id="contacto" class="py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-8">Contacto</h2>
+            <p class="text-lg text-gray-600">¿Tienes alguna pregunta o necesitas nuestros servicios? ¡Contáctanos!</p>
+            <a href="mailto:contacto@devsninos.com" class="mt-4 text-blue-500 hover:underline text-lg font-semibold">contacto@devsninos.com</a>
+        </div>
+    </section>
 
+    <!-- Pie de página -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Devs Niños - Desarrollo de Software. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
