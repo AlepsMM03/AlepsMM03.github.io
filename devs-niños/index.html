@@ -3,109 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devs Niños - Desarrollo de Software</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <title>Devs Niños</title>
+    <!-- Agrega los enlaces a las hojas de estilo de TailwindCSS aquí -->
+    <!-- Por ejemplo, puedes usar CDN para la versión más reciente: -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 font-sans">
-    <!-- Barra de navegación -->
-    <nav class="bg-blue-500 p-4">
-        <div class="container mx-auto">
-            <div class="flex justify-between items-center">
-                <h1 class="text-white text-2xl font-semibold">Devs Niños</h1>
-                <ul class="flex space-x-4">
-                    <li><a href="#" class="text-white">Inicio</a></li>
-                    <li><a href="#nosotros" class="text-white">Nosotros</a></li>
-                    <li><a href="#servicios" class="text-white">Servicios</a></li>
-                    <li><a href="#portafolio" class="text-white">Portafolio</a></li>
-                    <li><a href="#contacto" class="text-white">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+<body class="bg-white text-black">
     <!-- Encabezado -->
-    <header class="bg-blue-900 text-white py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-semibold">Transformando Ideas en Soluciones</h2>
-            <p class="mt-4 text-lg">Somos un equipo de estudiantes apasionados por la tecnología y la innovación.</p>
-            <a href="#contacto" class="mt-6 bg-yellow-500 hover:bg-yellow-600 text-blue-900 text-lg font-semibold py-2 px-6 rounded-full inline-block transition duration-300">Contáctanos</a>
+    <header class="bg-black text-white py-4">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold">Devs Niños</h1>
+            <p class="text-lg">"Construyendo el futuro, una línea de código a la vez."</p>
         </div>
     </header>
 
-    <!-- Sección Nosotros -->
-    <section id="nosotros" class="py-16">
+    <!-- Navegación -->
+<nav class="bg-black text-white py-2">
+    <div class="container mx-auto">
+        <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
+        <div class="flex justify-between items-center">
+            <a href="#" class="text-2xl font-semibold"></a>
+            <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Menú de navegación responsive (inicialmente oculto) -->
+        <ul id="mobile-menu" class="hidden md:flex justify-center space-x-6 mt-4">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    // JavaScript para mostrar/ocultar el menú en dispositivos móviles
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+
+
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="py-12 bg-black text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold">Bienvenido a Nuestra Empresa de Software</h2>
+            <p class="text-lg">Somos expertos en desarrollo de software a medida.</p>
+            <a href="#contacto" class="bg-blue-500 text-white px-6 py-2 rounded-full mt-4 inline-block hover:bg-blue-600 transition duration-300">Contáctanos</a>
+        </div>
+    </section>
+
+    <!-- Sección de Proyectos -->
+<section  id="proyectos" class="bg-black text-white py-12">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-semibold">Nuestros Proyectos Destacados</h2>
+        <!-- Aquí puedes agregar tus proyectos usando tarjetas de Tailwind CSS -->
+        <!-- Por ejemplo: -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <div class="bg-black p-4 rounded-lg shadow-lg">
+                <img src="nuevo_nivel.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                <h3 class="text-xl font-semibold">Nuevo Nivel</h3>
+                <p class="text-gray-600">Aplicacion de asesorias academicas.</p>
+            </div>
+            <!-- Agregar más tarjetas de proyectos aquí -->
+            <div class="bg-black p-4 rounded-lg shadow-lg">
+                <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                <h3 class="text-xl font-semibold">Proyecto 1</h3>
+                <p class="text-gray-600">Descripción del proyecto 1.</p>
+            </div>
+
+            <div class="bg-black p-4 rounded-lg shadow-lg">
+                <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                <h3 class="text-xl font-semibold">Proyecto 1</h3>
+                <p class="text-gray-600">Descripción del proyecto 1.</p>
+            </div>
+
+            <div class="bg-black p-4 rounded-lg shadow-lg">
+                <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                <h3 class="text-xl font-semibold">Proyecto 1</h3>
+                <p class="text-gray-600">Descripción del proyecto 1.</p>
+            </div>
+
+            <div class="bg-black p-4 rounded-lg shadow-lg">
+                <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                <h3 class="text-xl font-semibold">Proyecto 1</h3>
+                <p class="text-gray-600">Descripción del proyecto 1.</p>
+            </div>
+
+            <div class="bg-black p-4 rounded-lg shadow-lg">
+                <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                <h3 class="text-xl font-semibold">Proyecto 1</h3>
+                <p class="text-gray-600">Descripción del proyecto 1.</p>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-12 bg-black text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold">Nuestros Servicios</h2>
+            <p class="text-lg">Ofrecemos una amplia gama de servicios de desarrollo de software.</p>
+            <!-- Lista de servicios -->
+            <ul class="list-disc mt-4">
+                <li>Servicio 1</li>
+                <li>Servicio 2</li>
+                <li>Servicio 3</li>
+                <li>Servicio 4</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sección de Equipo -->
+    <section id="equipo" class="bg-black text-white py-12">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-semibold text-gray-800 mb-8">Nosotros</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold">Misión</h3>
-                    <p class="mt-4 text-gray-600">Nuestra misión es crear soluciones creativas e innovadoras a los procesos de negocio en los sectores académico y comercial, contribuyendo al éxito de nuestros clientes.</p>
+            <h2 class="text-3xl font-semibold text-center">Nuestro Equipo</h2>
+            <!-- Perfiles del equipo -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                <!-- Perfil 1 -->
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <img src="imagen_equipo1.jpg" class="w-full rounded-full mb-4" alt="Equipo 1">
+                    <h3 class="text-xl font-semibold">Nombre del Miembro del Equipo</h3>
+                    <p class="text-gray-600">Cargo del Miembro del Equipo</p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Visión</h3>
-                    <p class="mt-4 text-gray-600">Buscamos ser líderes en el desarrollo de sistemas tecnológicos que impulsen la economía y la educación, mejorando constantemente nuestros productos y servicios.</p>
-                </div>
+                <!-- Agregar más perfiles de equipo aquí -->
             </div>
         </div>
     </section>
 
-    <!-- Sección Servicios -->
-    <section id="servicios" class="bg-gray-200 py-16">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-semibold text-gray-800 mb-8">Nuestros Servicios</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-blue-500">Desarrollo de Sistemas</h3>
-                    <p class="mt-4 text-gray-600">Creamos sistemas para instituciones académicas y empresas, optimizando procesos y mejorando la eficiencia.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-blue-500">Investigación de Mercado</h3>
-                    <p class="mt-4 text-gray-600">Realizamos investigaciones de mercado para potenciar el comercio, automatizando y digitalizando procesos de negocio.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-blue-500">Soporte Técnico</h3>
-                    <p class="mt-4 text-gray-600">Ofrecemos soporte técnico de alta calidad para garantizar el éxito de nuestros clientes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Portafolio -->
-    <section id="portafolio" class="py-16">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-semibold text-gray-800 mb-8">Portafolio de Proyectos</h2>
-            <!-- Ejemplo de proyecto -->
-            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-                <h3 class="text-xl font-semibold text-blue-500">Proyecto 1</h3>
-                <p class="mt-4 text-gray-600">Descripción del proyecto 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <!-- Ejemplo de proyecto -->
-            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-                <h3 class="text-xl font-semibold text-blue-500">Proyecto 2</h3>
-                <p class="mt-4 text-gray-600">Descripción del proyecto 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <!-- Ejemplo de proyecto -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-500">Proyecto 3</h3>
-                <p class="mt-4 text-gray-600">Descripción del proyecto 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Contacto -->
-    <section id="contacto" class="py-16">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-semibold text-gray-800 mb-8">Contacto</h2>
-            <p class="text-lg text-gray-600">¿Tienes alguna pregunta o necesitas nuestros servicios? ¡Contáctanos!</p>
-            <a href="mailto:contacto@devsninos.com" class="mt-4 text-blue-500 hover:underline text-lg font-semibold">contacto@devsninos.com</a>
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="py-12 bg-black text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold">Contáctanos</h2>
+            <p class="text-lg">¡Estamos listos para ayudarte! Ponte en contacto con nosotros.</p>
+            <!-- Formulario de contacto o información de contacto -->
         </div>
     </section>
 
     <!-- Pie de página -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2023 Devs Niños - Desarrollo de Software. Todos los derechos reservados.</p>
+    <footer class="bg-black text-white py-4">
+        <div class="container mx-auto">
+            <p>&copy; 2023 Devs Niños</p>
         </div>
     </footer>
+
+    <!-- Agrega los enlaces a los scripts de Bootstrap y cualquier otro script necesario aquí -->
+
 </body>
 </html>
