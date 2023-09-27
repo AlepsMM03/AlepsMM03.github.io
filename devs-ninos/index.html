@@ -9,6 +9,31 @@
       <link rel="icon" href="logo.jpg" type="image/png">
       <script src="https://kit.fontawesome.com/48eb1584a2.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+      <style>
+/* Estilo para el subrayado en los enlaces al pasar el cursor */
+nav ul li a {
+    position: relative;
+    text-decoration: none; /* Elimina el subrayado predeterminado */
+    transition: padding 0.2s ease-in-out; /* Transición para el relleno del subrayado */
+    padding-bottom: 5px; /* Grosor inicial del subrayado */
+}
+
+nav ul li a:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Grosor del subrayado */
+    background-color: white; /* Color del subrayado */
+    transition: width 0.2s ease-in-out; /* Transición para ajustar la anchura */
+}
+
+nav ul li a:hover:before {
+    width: 100%; /* Ancho completo al pasar el cursor */
+}
+
+      </style>
    </head>
    <body class="bg-white text-black">
       <!-- Encabezado -->
@@ -18,7 +43,6 @@
        <img src="logo.jpg" alt="Devs Niños Logo" class="w-20 h-20">
        <div class="ml-4"> <!-- Margen izquierdo para separar el logo y el texto -->
            <h1 class="text-4xl font-bold">Devs Niños</h1>
-           <p class="text-lg">"Construyendo el futuro, una línea de código a la vez."</p>
        </div>
    </div>
 </header>
@@ -26,28 +50,29 @@
 
 
 
-      <!-- Navegación -->
-      <nav class="bg-black text-white py-2">
-         <div class="container mx-auto">
-            <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
-            <div class="flex justify-between items-center">
-               <a href="#" class="text-2xl font-semibold"></a>
-               <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 focus:outline-none">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                  </svg>
-               </button>
-            </div>
-            <!-- Menú de navegación responsive (inicialmente oculto) -->
-            <ul id="mobile-menu" class="hidden md:flex justify-center space-x-6 mt-4">
-               <li><a href="#inicio">Inicio</a></li>
-               <li><a href="#proyectos">Proyectos</a></li>
-               <li><a href="#servicios">Servicios</a></li>
-               <li><a href="#equipo">Equipo</a></li>
-               <li><a href="#contacto">Contacto</a></li>
-            </ul>
-         </div>
-      </nav>
+    <!-- Navegación -->
+<nav class="bg-black text-white py-2">
+   <div class="container mx-auto">
+       <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
+       <div class="flex justify-between items-center">
+           <a href="#" class="text-2xl font-semibold"></a>
+           <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 focus:outline-none">
+               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+               </svg>
+           </button>
+       </div>
+       <!-- Menú de navegación responsive (inicialmente oculto) -->
+       <ul id="mobile-menu" class="hidden md:flex justify-center space-x-6 mt-4">
+           <li><a href="#inicio">Inicio</a></li>
+           <li><a href="#proyectos">Proyectos</a></li>
+           <li><a href="#servicios">Servicios</a></li>
+           <li><a href="#equipo">Equipo</a></li>
+           <li><a href="#contacto">Contacto</a></li>
+       </ul>
+   </div>
+</nav>
+
       <script>
          // JavaScript para mostrar/ocultar el menú en dispositivos móviles
          const mobileMenuButton = document.getElementById('mobile-menu-button');
