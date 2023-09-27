@@ -1,244 +1,211 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devs Niños</title>
-    <!-- Agrega los enlaces a las hojas de estilo de TailwindCSS aquí -->
-    <!-- Por ejemplo, puedes usar CDN para la versión más reciente: -->
-    <link rel="icon" href="logo.jpg" type="image/png">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-
-</head>
-<body class="bg-white text-black">
-    <!-- Encabezado -->
-    <header class="bg-black text-white py-4">
-        <div class="container mx-auto">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Devs Niños</title>
+      <!-- Agrega los enlaces a las hojas de estilo de TailwindCSS aquí -->
+      <!-- Por ejemplo, puedes usar CDN para la versión más reciente: -->
+      <link rel="icon" href="logo.jpg" type="image/png">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+   </head>
+   <body class="bg-white text-black">
+      <!-- Encabezado -->
+      <header class="bg-black text-white py-4">
+         <div class="container mx-auto">
             <h1 class="text-4xl font-bold">Devs Niños</h1>
             <p class="text-lg">"Construyendo el futuro, una línea de código a la vez."</p>
-        </div>
-    </header>
-
-    <!-- Navegación -->
-<nav class="bg-black text-white py-2">
-    <div class="container mx-auto">
-        <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
-        <div class="flex justify-between items-center">
-            <a href="#" class="text-2xl font-semibold"></a>
-            <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-        <!-- Menú de navegación responsive (inicialmente oculto) -->
-        <ul id="mobile-menu" class="hidden md:flex justify-center space-x-6 mt-4">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#equipo">Equipo</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </div>
-</nav>
-
-<script>
-    // JavaScript para mostrar/ocultar el menú en dispositivos móviles
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-</script>
-
-
-    <!-- Sección de Inicio -->
-    <section id="inicio" class="py-12 bg-black text-white">
-        <div class="container mx-auto text-center">
+         </div>
+      </header>
+      <!-- Navegación -->
+      <nav class="bg-black text-white py-2">
+         <div class="container mx-auto">
+            <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
+            <div class="flex justify-between items-center">
+               <a href="#" class="text-2xl font-semibold"></a>
+               <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 focus:outline-none">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+               </button>
+            </div>
+            <!-- Menú de navegación responsive (inicialmente oculto) -->
+            <ul id="mobile-menu" class="hidden md:flex justify-center space-x-6 mt-4">
+               <li><a href="#inicio">Inicio</a></li>
+               <li><a href="#proyectos">Proyectos</a></li>
+               <li><a href="#servicios">Servicios</a></li>
+               <li><a href="#equipo">Equipo</a></li>
+               <li><a href="#contacto">Contacto</a></li>
+            </ul>
+         </div>
+      </nav>
+      <script>
+         // JavaScript para mostrar/ocultar el menú en dispositivos móviles
+         const mobileMenuButton = document.getElementById('mobile-menu-button');
+         const mobileMenu = document.getElementById('mobile-menu');
+         
+         mobileMenuButton.addEventListener('click', () => {
+             mobileMenu.classList.toggle('hidden');
+         });
+      </script>
+      <!-- Sección de Inicio -->
+      <section id="inicio" class="py-12 bg-black text-white">
+         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-semibold">Bienvenido a Devs Niños</h2>
             <p class="text-lg">Somos expertos en desarrollo de software a medida.</p>
-            <a href="#contacto" class="bg-green-500 text-white px-6 py-2 rounded-full mt-4 inline-block hover:bg-green-600 transition duration-300">Contáctanos</a>
-        </div>
-    </section>
-
-    <!-- Sección de Proyectos -->
-<section  id="proyectos" class="bg-black text-white py-12">
-    <div class="container mx-auto">
-        <h2 class="text-3xl font-semibold">Nuestros Proyectos Destacados</h2>
-        <!-- Aquí puedes agregar tus proyectos usando tarjetas de Tailwind CSS -->
-        <!-- Por ejemplo: -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-            <div class="bg-black p-4 rounded-lg shadow-lg">
-                <img src="nuevo_nivel.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                <h3 class="text-xl font-semibold">Nuevo Nivel</h3>
-                <p class="text-green-600">Aplicación de asesorías académicas.</p>
+            <a href="#contacto" class="bg-blue-500 text-white px-6 py-2 rounded-full mt-4 inline-block hover:bg-blue-600 transition duration-300">Contáctanos</a>
+         </div>
+      </section>
+      <!-- Sección de Proyectos -->
+      <section  id="proyectos" class="bg-black text-white py-12">
+         <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold">Nuestros Proyectos Destacados</h2>
+            <!-- Aquí puedes agregar tus proyectos usando tarjetas de Tailwind CSS -->
+            <!-- Por ejemplo: -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+               <div class="bg-black p-4 rounded-lg shadow-lg">
+                  <img src="nuevo_nivel.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                  <h3 class="text-xl font-semibold">Nuevo Nivel</h3>
+                  <p class="text-white-600">Aplicación de asesorías académicas.</p>
+               </div>
+               <!-- Agregar más tarjetas de proyectos aquí -->
+               <div class="bg-black p-4 rounded-lg shadow-lg">
+                  <img src="/Logo_centrado_de_la_Agencia_Espacial_Mexicana.svg.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                  <h3 class="text-xl font-semibold">SRV</h3>
+                  <p class="text-white-600">Creación de sistema de control de personal en la Agencia Espacial Mexicana.</p>
+               </div>
+               <div class="bg-black p-4 rounded-lg shadow-lg">
+                  <img src="/izc.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                  <h3 class="text-xl font-semibold">Agenda Cultural Zacatecas</h3>
+                  <p class="text-white-600">Plataforma de Eventos Culturales para el Estado de Zacatecas. En desarrollo en conjunto con el COZCyT y LABSOL.</p>
+               </div>
+               <div class="bg-black p-4 rounded-lg shadow-lg">
+                  <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                  <h3 class="text-xl font-semibold"></h3>
+                  <p class="text-white-600">Descripción del proyecto 1.</p>
+               </div>
+               <div class="bg-black p-4 rounded-lg shadow-lg">
+                  <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                  <h3 class="text-xl font-semibold">Proyecto 1</h3>
+                  <p class="text-white-600">Descripción del proyecto 1.</p>
+               </div>
+               <div class="bg-black p-4 rounded-lg shadow-lg">
+                  <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                  <h3 class="text-xl font-semibold">Proyecto 1</h3>
+                  <p class="text-white-600">Descripción del proyecto 1.</p>
+               </div>
             </div>
-            <!-- Agregar más tarjetas de proyectos aquí -->
-            <div class="bg-black p-4 rounded-lg shadow-lg">
-                <img src="/Logo_centrado_de_la_Agencia_Espacial_Mexicana.svg.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                <h3 class="text-xl font-semibold">SRV</h3>
-                <p class="text-green-600">Creación de sistema de control de personal en la Agencia Espacial Mexicana.</p>
+         </div>
+      </section>
+      <!-- Sección de Servicios en pequeñas tarjetas -->
+      <section id="servicios" class="py-12 bg-black text-white">
+         <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold">Nuestros Servicios</h2>
+            <p class="text-lg">Ofrecemos una amplia gama de servicios de desarrollo de software.</p>
+            <!-- Tarjetas de servicios -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+               <!-- Tarjeta 1 -->
+               <div class="bg-white text-black rounded-lg p-4 flex items-center">
+                  <i class="fas fa-laptop-code text-2xl mr-2"></i>
+                  <span>Desarrollo de Aplicaciones y Páginas Web</span>
+               </div>
+               <!-- Tarjeta 2 -->
+               <div class="bg-white text-black rounded-lg p-4 flex items-center">
+                  <i class="fas fa-mobile-alt text-2xl mr-2"></i>
+                  <span>Desarrollo de Aplicaciones Móviles</span>
+               </div>
+               <!-- Tarjeta 3 -->
+               <div class="bg-white text-black rounded-lg p-4 flex items-center">
+                  <i class="fas fa-cogs text-2xl mr-2"></i>
+                  <span>Consultoría en Tecnología de la Información</span>
+               </div>
+               <!-- Tarjeta 4 -->
+               <div class="bg-white text-black rounded-lg p-4 flex items-center">
+                  <i class="fas fa-cubes text-2xl mr-2"></i>
+                  <span>Desarrollo de Software a Medida</span>
+               </div>
             </div>
-
-            <div class="bg-black p-4 rounded-lg shadow-lg">
-                <img src="/izc.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                <h3 class="text-xl font-semibold">Agenda Cultural Zacatecas</h3>
-                <p class="text-green-600">Plataforma de Eventos Culturales para el Estado de Zacatecas. En desarrollo en conjunto con el COZCyT y LABSOL.</p>
+         </div>
+      </section>
+      <!-- Sección de Equipo -->
+      <section id="equipo" class="bg-black text-white py-12">
+         <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-center">Nuestro Equipo</h2>
+            <!-- Perfiles del equipo -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+               <!-- Perfil 1 -->
+               <div class="bg-white text-black p-4 rounded-lg shadow-lg">
+                  <img src="/95830903.png" class="w-24 h-24 object-cover rounded-full mx-auto mb-4" alt="Equipo 1">
+                  <h3 class="text-xl font-semibold text-center">Alejandro Montes</h3>
+                  <p class="text-gray-600 text-center">CEO</p>
+                  <p class="text-gray-600 text-center">Director Ejecutivo</p>
+               </div>
+               <!-- Perfil 2 -->
+               <div class="bg-white text-black p-4 rounded-lg shadow-lg">
+                  <img src="icon-7797704_1280.png" class="w-24 h-24 object-cover rounded-full mx-auto mb-4" alt="Equipo 1">
+                  <h3 class="text-xl font-semibold text-center">Eduardo Ruelas Cortés</h3>
+                  <p class="text-gray-600 text-center">COO</p>
+                  <p class="text-gray-600 text-center">Director de Operaciones</p>
+               </div>
+               <!-- Perfil 3 -->
+               <div class="bg-white text-black p-4 rounded-lg shadow-lg">
+                  <img src="sara.jpg" class="w-24 h-24 object-cover rounded-full mx-auto mb-4" alt="Equipo 1">
+                  <h3 class="text-xl font-semibold text-center">Sara Laura González Badillo</h3>
+                  <p class="text-gray-600 text-center">CFO</p>
+                  <p class="text-gray-600 text-center">Directora de Marketing</p>
+               </div>
             </div>
-
-            <div class="bg-black p-4 rounded-lg shadow-lg">
-                <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                <h3 class="text-xl font-semibold">Proyecto 1</h3>
-                <p class="text-green-600">Descripción del proyecto 1.</p>
-            </div>
-
-            <div class="bg-black p-4 rounded-lg shadow-lg">
-                <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                <h3 class="text-xl font-semibold">Proyecto 1</h3>
-                <p class="text-green-600">Descripción del proyecto 1.</p>
-            </div>
-
-            <div class="bg-black p-4 rounded-lg shadow-lg">
-                <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                <h3 class="text-xl font-semibold">Proyecto 1</h3>
-                <p class="text-green-600">Descripción del proyecto 1.</p>
-            </div>
-
-
-        </div>
-    </div>
-</section>
-
-
-<!-- Sección de Servicios en pequeñas tarjetas -->
-<section id="servicios" class="py-12 bg-black text-white">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-semibold">Nuestros Servicios</h2>
-        <p class="text-lg">Ofrecemos una amplia gama de servicios de desarrollo de software.</p>
-        <!-- Tarjetas de servicios -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
-            <!-- Tarjeta 1 -->
-            <div class="bg-white text-black rounded-lg p-4 flex items-center">
-                <i class="fas fa-laptop-code text-2xl mr-2"></i>
-                <span>Desarrollo de Aplicaciones y Páginas Web</span>
-            </div>
-
-            <!-- Tarjeta 2 -->
-            <div class="bg-white text-black rounded-lg p-4 flex items-center">
-                <i class="fas fa-mobile-alt text-2xl mr-2"></i>
-                <span>Desarrollo de Aplicaciones Móviles</span>
-            </div>
-
-            <!-- Tarjeta 3 -->
-            <div class="bg-white text-black rounded-lg p-4 flex items-center">
-                <i class="fas fa-cogs text-2xl mr-2"></i>
-                <span>Consultoría en Tecnología de la Información</span>
-            </div>
-
-            <!-- Tarjeta 4 -->
-            <div class="bg-white text-black rounded-lg p-4 flex items-center">
-                <i class="fas fa-cubes text-2xl mr-2"></i>
-                <span>Desarrollo de Software a Medida</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-    <!-- Sección de Equipo -->
-<section id="equipo" class="bg-black text-white py-12">
-    <div class="container mx-auto">
-        <h2 class="text-3xl font-semibold text-center">Nuestro Equipo</h2>
-        <!-- Perfiles del equipo -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            <!-- Perfil 1 -->
-            <div class="bg-white text-black p-4 rounded-lg shadow-lg">
-                <img src="/95830903.png" class="w-24 h-24 object-cover rounded-full mx-auto mb-4" alt="Equipo 1">
-                <h3 class="text-xl font-semibold text-center">Alejandro Montes</h3>
-                <p class="text-gray-600 text-center">CEO</p>
-                <p class="text-gray-600 text-center">Director Ejecutivo</p>
-            </div>
-
-             <!-- Perfil 2 -->
-             <div class="bg-white text-black p-4 rounded-lg shadow-lg">
-                <img src="icon-7797704_1280.png" class="w-24 h-24 object-cover rounded-full mx-auto mb-4" alt="Equipo 1">
-                <h3 class="text-xl font-semibold text-center">Eduardo Ruelas Cortés</h3>
-                <p class="text-gray-600 text-center">COO</p>
-                <p class="text-gray-600 text-center">Director de Operaciones</p>
-            </div>
-
-            <!-- Perfil 3 -->
-            <div class="bg-white text-black p-4 rounded-lg shadow-lg">
-                <img src="sara.jpg" class="w-24 h-24 object-cover rounded-full mx-auto mb-4" alt="Equipo 1">
-                <h3 class="text-xl font-semibold text-center">Sara Laura González Badillo</h3>
-                <p class="text-gray-600 text-center">CFO</p>
-                <p class="text-gray-600 text-center">Directora de Marketing</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- Sección de Contacto -->
-<section id="contacto" class="py-12 bg-black text-white">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-semibold">Contáctanos</h2>
-        <p class="text-lg">¡Estamos listos para ayudarte! Ponte en contacto con nosotros.</p>
-
-        <!-- Información de contacto o formulario -->
-
-        <!-- Puedes agregar enlaces de contacto aquí -->
-        <div class="mt-8">
-            <div class="flex flex-col items-center md:flex-row md:justify-center md:space-x-4">
-                <ul class="list-none flex space-x-4 mb-4 md:mb-0">
-                    <li>
+         </div>
+      </section>
+      <!-- Sección de Contacto -->
+      <section id="contacto" class="py-12 bg-black text-white">
+         <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold">Contáctanos</h2>
+            <p class="text-lg">¡Estamos listos para ayudarte! Ponte en contacto con nosotros.</p>
+            <!-- Información de contacto o formulario -->
+            <!-- Puedes agregar enlaces de contacto aquí -->
+            <div class="mt-8">
+               <div class="flex flex-col items-center md:flex-row md:justify-center md:space-x-4">
+                  <ul class="list-none flex space-x-4 mb-4 md:mb-0">
+                     <li>
                         <a href="https://wa.me/tunumerodetelefono" class="text-green-500 hover:text-green-700 flex items-center">
-                            <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
                         </a>
-                    </li>
-                    <li>
+                     </li>
+                     <li>
                         <a href="mailto:devsninos@gmail.com" class="text-blue-500 hover:text-blue-700 flex items-center">
-                            <i class="fas fa-envelope mr-2"></i> Correo Electrónico
+                        <i class="fas fa-envelope mr-2"></i> Correo Electrónico
                         </a>
-                    </li>
-                    <li>
+                     </li>
+                     <li>
                         <a href="https://www.facebook.com/" class="text-blue-500 hover:text-blue-700 flex items-center">
-                            <i class="fab fa-facebook-square mr-2"></i> Facebook
+                        <i class="fab fa-facebook-square mr-2"></i> Facebook
                         </a>
-                    </li>
-                </ul>
-                <ul class="list-none flex space-x-4">
-                    <li>
+                     </li>
+                  </ul>
+                  <ul class="list-none flex space-x-4">
+                     <li>
                         <a href="https://twitter.com/" class="text-blue-500 hover:text-blue-700 flex items-center">
-                            <i class="fa-brands fa-square-x-twitter mr-2"></i> X
+                        <i class="fa-brands fa-square-x-twitter mr-2"></i> X
                         </a>
-                    </li>
-                    <li>
+                     </li>
+                     <li>
                         <a href="https://twitter.com/" class="text-blue-500 hover:text-blue-700 flex items-center">
-                            <i class="fa-brands fa-threads mr-2"></i> Threads
+                        <i class="fa-brands fa-threads mr-2"></i> Threads
                         </a>
-                    </li>
-                </ul>
+                     </li>
+                  </ul>
+               </div>
             </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-    <!-- Pie de página -->
-    <footer class="bg-black text-white py-4">
-        <div class="container mx-auto">
+         </div>
+      </section>
+      <!-- Pie de página -->
+      <footer class="bg-black text-white py-4">
+         <div class="container mx-auto">
             <p>&copy; 2023 Devs Niños</p>
-        </div>
-    </footer>
-    <script src="https://kit.fontawesome.com/48eb1584a2.js" crossorigin="anonymous"></script>
-</body>
+         </div>
+      </footer>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://kit.fontawesome.com/48eb1584a2.js" crossorigin="anonymous"></script>
+   </body>
 </html>
