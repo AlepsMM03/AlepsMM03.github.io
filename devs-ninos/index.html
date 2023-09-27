@@ -7,9 +7,28 @@
       <!-- Agrega los enlaces a las hojas de estilo de TailwindCSS aquí -->
       <!-- Por ejemplo, puedes usar CDN para la versión más reciente: -->
       <link rel="icon" href="logo.jpg" type="image/png">
+      <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
       <script src="https://kit.fontawesome.com/48eb1584a2.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
       <style>
+        /* Agrega un enlace a la fuente Gotham si tienes una licencia */
+@font-face {
+  font-family: 'Gotham';
+  src: url('gotham-6-cufonfonts/GothamXLight.otf') format('woff2');
+  /* Otras fuentes alternativas (woff, ttf) pueden ser necesarias para una mejor compatibilidad */
+}
+
+/* Aplica la fuente Gotham al elemento body */
+body {
+  font-family: 'Gotham', sans-serif;
+}
+
+/* Puedes aplicar la fuente a otros elementos específicos si lo deseas */
+h1, h2, h3 {
+  font-family: 'Gotham', sans-serif;
+}
+
+
 /* Estilo para el subrayado en los enlaces al pasar el cursor */
 nav ul li a {
     position: relative;
@@ -39,29 +58,25 @@ nav ul li a:hover:before {
       <!-- Encabezado -->
 <!-- Encabezado con logo y texto alineados a la izquierda -->
 <header class="bg-black text-white py-4">
-   <div class="container mx-auto flex items-center">
-       <img src="logo.jpg" alt="Devs Niños Logo" class="w-20 h-20">
-       <div class="ml-4"> <!-- Margen izquierdo para separar el logo y el texto -->
-           <h1 class="text-4xl font-bold">Devs Niños</h1>
+   <div class="container mx-auto flex items-center justify-between"> <!-- Cambiado justify-between -->
+       <div class="flex items-center"> <!-- Mantener logo y texto alineados verticalmente -->
+           <img src="logo.jpg" alt="Devs Niños Logo" class="w-20 h-20">
+           <div class="ml-4"> <!-- Margen izquierdo para separar el logo y el texto -->
+               <h1 class="text-4xl font-bold">Devs Niños</h1>
+           </div>
        </div>
+       <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
+       <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 focus:outline-none">
+           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+           </svg>
+       </button>
    </div>
 </header>
 
-
-
-
-    <!-- Navegación -->
+<!-- Navegación -->
 <nav class="bg-black text-white py-2">
    <div class="container mx-auto">
-       <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
-       <div class="flex justify-between items-center">
-           <a href="#" class="text-2xl font-semibold"></a>
-           <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 focus:outline-none">
-               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-               </svg>
-           </button>
-       </div>
        <!-- Menú de navegación responsive (inicialmente oculto) -->
        <ul id="mobile-menu" class="hidden md:flex justify-center space-x-6 mt-4">
            <li><a href="#inicio">Inicio</a></li>
@@ -73,6 +88,7 @@ nav ul li a:hover:before {
    </div>
 </nav>
 
+
       <script>
          // JavaScript para mostrar/ocultar el menú en dispositivos móviles
          const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -81,6 +97,22 @@ nav ul li a:hover:before {
          mobileMenuButton.addEventListener('click', () => {
              mobileMenu.classList.toggle('hidden');
          });
+         // Aplicar desplazamiento suave a todos los enlaces de anclaje internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth' // Hace que el desplazamiento sea suave
+                    });
+                }
+            });
+        });
       </script>
       <!-- Sección de Inicio -->
       <section id="inicio" class="py-12 bg-black text-white">
