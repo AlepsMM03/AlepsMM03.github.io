@@ -6,6 +6,7 @@
     <title>Devs Niños</title>
     <!-- Agrega los enlaces a las hojas de estilo de TailwindCSS aquí -->
     <!-- Por ejemplo, puedes usar CDN para la versión más reciente: -->
+    <link rel="icon" href="logo.jpg" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
@@ -58,7 +59,7 @@
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-semibold">Bienvenido a Devs Niños</h2>
             <p class="text-lg">Somos expertos en desarrollo de software a medida.</p>
-            <a href="#contacto" class="bg-blue-500 text-white px-6 py-2 rounded-full mt-4 inline-block hover:bg-blue-600 transition duration-300">Contáctanos</a>
+            <a href="#contacto" class="bg-green-500 text-white px-6 py-2 rounded-full mt-4 inline-block hover:bg-green-600 transition duration-300">Contáctanos</a>
         </div>
     </section>
 
@@ -72,37 +73,37 @@
             <div class="bg-black p-4 rounded-lg shadow-lg">
                 <img src="nuevo_nivel.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
                 <h3 class="text-xl font-semibold">Nuevo Nivel</h3>
-                <p class="text-gray-600">Aplicación de asesorías académicas.</p>
+                <p class="text-green-600">Aplicación de asesorías académicas.</p>
             </div>
             <!-- Agregar más tarjetas de proyectos aquí -->
             <div class="bg-black p-4 rounded-lg shadow-lg">
-                <img src="/aem.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                <img src="/Logo_centrado_de_la_Agencia_Espacial_Mexicana.svg.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
                 <h3 class="text-xl font-semibold">SRV</h3>
-                <p class="text-gray-600">sistema de control de peronal y seguridad en la Agencia Espacial Mexicana</p>
+                <p class="text-green-600">Creación de sistema de control de personal en la Agencia Espacial Mexicana.</p>
+            </div>
+
+            <div class="bg-black p-4 rounded-lg shadow-lg">
+                <img src="/izc.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+                <h3 class="text-xl font-semibold">Agenda Cultural Zacatecas</h3>
+                <p class="text-green-600">Plataforma de Eventos Culturales para el Estado de Zacatecas. En desarrollo en conjunto con el COZCyT y LABSOL.</p>
             </div>
 
             <div class="bg-black p-4 rounded-lg shadow-lg">
                 <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
                 <h3 class="text-xl font-semibold">Proyecto 1</h3>
-                <p class="text-gray-600">Descripción del proyecto 1.</p>
+                <p class="text-green-600">Descripción del proyecto 1.</p>
             </div>
 
             <div class="bg-black p-4 rounded-lg shadow-lg">
                 <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
                 <h3 class="text-xl font-semibold">Proyecto 1</h3>
-                <p class="text-gray-600">Descripción del proyecto 1.</p>
+                <p class="text-green-600">Descripción del proyecto 1.</p>
             </div>
 
             <div class="bg-black p-4 rounded-lg shadow-lg">
                 <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
                 <h3 class="text-xl font-semibold">Proyecto 1</h3>
-                <p class="text-gray-600">Descripción del proyecto 1.</p>
-            </div>
-
-            <div class="bg-black p-4 rounded-lg shadow-lg">
-                <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                <h3 class="text-xl font-semibold">Proyecto 1</h3>
-                <p class="text-gray-600">Descripción del proyecto 1.</p>
+                <p class="text-green-600">Descripción del proyecto 1.</p>
             </div>
 
 
@@ -111,37 +112,76 @@
 </section>
 
 
-    <!-- Sección de Servicios -->
-    <section id="servicios" class="py-12 bg-black text-white">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-semibold">Nuestros Servicios</h2>
-            <p class="text-lg">Ofrecemos una amplia gama de servicios de desarrollo de software.</p>
-            <!-- Lista de servicios -->
-            <ul class="list-disc mt-4">
-                <li>Servicio 1</li>
-                <li>Servicio 2</li>
-                <li>Servicio 3</li>
-                <li>Servicio 4</li>
-            </ul>
-        </div>
-    </section>
+<!-- Sección de Servicios en pequeñas tarjetas -->
+<section id="servicios" class="py-12 bg-black text-white">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-semibold">Nuestros Servicios</h2>
+        <p class="text-lg">Ofrecemos una amplia gama de servicios de desarrollo de software.</p>
+        <!-- Tarjetas de servicios -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+            <!-- Tarjeta 1 -->
+            <div class="bg-white text-black rounded-lg p-4 flex items-center">
+                <i class="fas fa-laptop-code text-2xl mr-2"></i>
+                <span>Desarrollo de Aplicaciones y Páginas Web</span>
+            </div>
 
-    <!-- Sección de Equipo -->
-    <section id="equipo" class="bg-black text-white py-12">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-semibold text-center">Nuestro Equipo</h2>
-            <!-- Perfiles del equipo -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-                <!-- Perfil 1 -->
-                <div class="bg-black text-white p-4 rounded-lg shadow-lg">
-                    <img src="imagen_equipo1.jpg" class="w-full rounded-full mb-4" alt="Equipo 1">
-                    <h3 class="text-xl font-semibold">Alejandro Montes</h3>
-                    <p class="text-gray-600">CEO</p>
-                </div>
-                <!-- Agregar más perfiles de equipo aquí -->
+            <!-- Tarjeta 2 -->
+            <div class="bg-white text-black rounded-lg p-4 flex items-center">
+                <i class="fas fa-mobile-alt text-2xl mr-2"></i>
+                <span>Desarrollo de Aplicaciones Móviles</span>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="bg-white text-black rounded-lg p-4 flex items-center">
+                <i class="fas fa-cogs text-2xl mr-2"></i>
+                <span>Consultoría en Tecnología de la Información</span>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="bg-white text-black rounded-lg p-4 flex items-center">
+                <i class="fas fa-cubes text-2xl mr-2"></i>
+                <span>Desarrollo de Software a Medida</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+    <!-- Sección de Equipo -->
+<section id="equipo" class="bg-black text-white py-12">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-semibold text-center">Nuestro Equipo</h2>
+        <!-- Perfiles del equipo -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            <!-- Perfil 1 -->
+            <div class="bg-white text-black p-4 rounded-lg shadow-lg">
+                <img src="/95830903.png" class="w-24 h-24 object-cover rounded-full mx-auto mb-4" alt="Equipo 1">
+                <h3 class="text-xl font-semibold text-center">Alejandro Montes</h3>
+                <p class="text-gray-600 text-center">CEO</p>
+                <p class="text-gray-600 text-center">Director Ejecutivo</p>
+            </div>
+
+             <!-- Perfil 2 -->
+             <div class="bg-white text-black p-4 rounded-lg shadow-lg">
+                <img src="icon-7797704_1280.png" class="w-24 h-24 object-cover rounded-full mx-auto mb-4" alt="Equipo 1">
+                <h3 class="text-xl font-semibold text-center">Eduardo Ruelas Cortés</h3>
+                <p class="text-gray-600 text-center">COO</p>
+                <p class="text-gray-600 text-center">Director de Operaciones</p>
+            </div>
+
+            <!-- Perfil 3 -->
+            <div class="bg-white text-black p-4 rounded-lg shadow-lg">
+                <img src="sara.jpg" class="w-24 h-24 object-cover rounded-full mx-auto mb-4" alt="Equipo 1">
+                <h3 class="text-xl font-semibold text-center">Sara Laura González Badillo</h3>
+                <p class="text-gray-600 text-center">CFO</p>
+                <p class="text-gray-600 text-center">Directora de Marketing</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
 <!-- Sección de Contacto -->
 <section id="contacto" class="py-12 bg-black text-white">
@@ -161,7 +201,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="mailto:correo@tudominio.com" class="text-blue-500 hover:text-blue-700 flex items-center">
+                        <a href="mailto:devsninos@gmail.com" class="text-blue-500 hover:text-blue-700 flex items-center">
                             <i class="fas fa-envelope mr-2"></i> Correo Electrónico
                         </a>
                     </li>
