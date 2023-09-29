@@ -60,32 +60,31 @@ nav ul li a:hover:before {
 <header class="bg-black text-white py-4">
    <div class="container mx-auto flex items-center justify-between"> <!-- Cambiado justify-between -->
        <div class="flex items-center"> <!-- Mantener logo y texto alineados verticalmente -->
-           <img src="logo.jpg" alt="Devs Niños Logo" class="w-20 h-20">
            <div class="ml-4"> <!-- Margen izquierdo para separar el logo y el texto -->
-               <h1 class="text-4xl font-bold">Devs Niños</h1>
+            <img src="DEVS_NIÑOS__1_-removebg-preview.png" alt="Devs Niños Logo" class="w-80 h-48">
            </div>
        </div>
        <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
-       <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 focus:outline-none">
-           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-           </svg>
-       </button>
+
+       
+       <!-- Navegación -->
+   <nav>
+      <div class="container mx-auto">
+         <!-- Menú de navegación responsive (inicialmente oculto) -->
+         <ul class="hidden md:flex justify-end space-x-8 mt-4">
+            <li><a href="#inicio"><b>Inicio</b></a></li>
+            <li><a href="#proyectos"><b>Proyectos</b></a></li>
+            <li><a href="#servicios"><b>Servicios</b></a></li>
+            <li><a href="#contacto"><b>Contacto</b></a></li>
+         </ul>
+      </div>
+   </nav>
+   
    </div>
+   
+
 </header>
 
-<!-- Navegación -->
-<nav class="bg-black text-white py-2">
-   <div class="container mx-auto">
-       <!-- Menú de navegación responsive (inicialmente oculto) -->
-       <ul id="mobile-menu" class="hidden md:flex justify-center space-x-6 mt-4">
-           <li><a href="#inicio">Inicio</a></li>
-           <li><a href="#proyectos">Proyectos</a></li>
-           <li><a href="#servicios">Servicios</a></li>
-           <li><a href="#contacto">Contacto</a></li>
-       </ul>
-   </div>
-</nav>
 
 
       <script>
@@ -114,7 +113,7 @@ nav ul li a:hover:before {
         });
       </script>
       <!-- Sección de Inicio -->
-      <section id="inicio" class="py-12 bg-black text-white">
+      <section id="inicio" class="py-12 bg-white text-black">
          <div class="container mx-auto text-center">
             <h2 class="text-3xl font-semibold">Bienvenido a Devs Niños</h2>
             <p class="text-lg">Somos expertos en desarrollo de software a medida.</p>
@@ -123,7 +122,7 @@ nav ul li a:hover:before {
       </section>
 
       <!-- Sección de Tecnologías -->
-<section id="tecnologias" class="bg-black text-white py-12">
+<section id="tecnologias" class="bg-white text-black py-12">
    <div class="container mx-auto text-center">
       <h2 class="text-3xl font-semibold">Tecnologías que Utilizamos</h2>
       <!-- Iconos de FontAwesome para las tecnologías con nombres -->
