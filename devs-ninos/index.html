@@ -4,89 +4,74 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Devs Niños</title>
-      <!-- Agrega los enlaces a las hojas de estilo de TailwindCSS aquí -->
-      <!-- Por ejemplo, puedes usar CDN para la versión más reciente: -->
       <link rel="icon" href="logo.jpg" type="image/png">
       <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
       <script src="https://kit.fontawesome.com/48eb1584a2.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
       <style>
-        /* Agrega un enlace a la fuente Gotham si tienes una licencia */
-@font-face {
-  font-family: 'Gotham';
-  src: url('gotham-6-cufonfonts/GothamXLight.otf') format('woff2');
-  /* Otras fuentes alternativas (woff, ttf) pueden ser necesarias para una mejor compatibilidad */
-}
-
-/* Aplica la fuente Gotham al elemento body */
-body {
-  font-family: 'Gotham', sans-serif;
-}
-
-/* Puedes aplicar la fuente a otros elementos específicos si lo deseas */
-h1, h2, h3 {
-  font-family: 'Gotham', sans-serif;
-}
-
-
-/* Estilo para el subrayado en los enlaces al pasar el cursor */
-nav ul li a {
-    position: relative;
-    text-decoration: none; /* Elimina el subrayado predeterminado */
-    transition: padding 0.2s ease-in-out; /* Transición para el relleno del subrayado */
-    padding-bottom: 5px; /* Grosor inicial del subrayado */
-}
-
-nav ul li a:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px; /* Grosor del subrayado */
-    background-color: white; /* Color del subrayado */
-    transition: width 0.2s ease-in-out; /* Transición para ajustar la anchura */
-}
-
-nav ul li a:hover:before {
-    width: 100%; /* Ancho completo al pasar el cursor */
-}
-
+         @font-face {
+         font-family: 'Gotham';
+         src: url('gotham-6-cufonfonts/GothamXLight.otf') format('woff2');
+         /* Otras fuentes alternativas (woff, ttf) pueden ser necesarias para una mejor compatibilidad */
+         }
+         /* Aplica la fuente Gotham al elemento body */
+         body {
+         font-family: 'Gotham', sans-serif;
+         }
+         /* Puedes aplicar la fuente a otros elementos específicos si lo deseas */
+         h1, h2, h3 {
+         font-family: 'Gotham', sans-serif;
+         }
+         /* Estilo para el subrayado en los enlaces al pasar el cursor */
+         nav ul li a {
+         position: relative;
+         text-decoration: none; /* Elimina el subrayado predeterminado */
+         transition: padding 0.2s ease-in-out; /* Transición para el relleno del subrayado */
+         padding-bottom: 5px; /* Grosor inicial del subrayado */
+         }
+         nav ul li a:before {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 0;
+         height: 2px; /* Grosor del subrayado */
+         background-color: white; /* Color del subrayado */
+         transition: width 0.2s ease-in-out; /* Transición para ajustar la anchura */
+         }
+         nav ul li a:hover:before {
+         width: 100%; /* Ancho completo al pasar el cursor */
+         }
       </style>
    </head>
    <body class="bg-white text-black">
       <!-- Encabezado -->
-<!-- Encabezado con logo y texto alineados a la izquierda -->
-<header class="bg-black text-white py-4">
-   <div class="container mx-auto flex items-center justify-between"> <!-- Cambiado justify-between -->
-       <div class="flex items-center"> <!-- Mantener logo y texto alineados verticalmente -->
-           <div class="ml-4"> <!-- Margen izquierdo para separar el logo y el texto -->
-            <img src="DEVS_NIÑOS__1_-removebg-preview.png" alt="Devs Niños Logo" class="w-80 h-48">
-           </div>
-       </div>
-       <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
-
-       
-       <!-- Navegación -->
-   <nav>
-      <div class="container mx-auto">
-         <!-- Menú de navegación responsive (inicialmente oculto) -->
-         <ul class="hidden md:flex justify-end space-x-8 mt-4">
-            <li><a href="#inicio"><b>Inicio</b></a></li>
-            <li><a href="#proyectos"><b>Proyectos</b></a></li>
-            <li><a href="#servicios"><b>Servicios</b></a></li>
-            <li><a href="#contacto"><b>Contacto</b></a></li>
-         </ul>
-      </div>
-   </nav>
-   
-   </div>
-   
-
-</header>
-
-
-
+      <!-- Encabezado con logo y texto alineados a la izquierda -->
+      <header class="bg-black text-white py-4">
+         <div class="container mx-auto flex items-center justify-between">
+            <!-- Cambiado justify-between -->
+            <div class="flex items-center">
+               <!-- Mantener logo y texto alineados verticalmente -->
+               <div class="ml-4">
+                  <!-- Margen izquierdo para separar el logo y el texto -->
+                  <img src="DEVS_NIÑOS__1_-removebg-preview.png" alt="Devs Niños Logo" class="w-80 h-48">
+               </div>
+            </div>
+            <!-- Agregar un botón para mostrar/ocultar el menú en dispositivos móviles -->
+            <!-- Navegación -->
+            <nav>
+               <div class="container mx-auto">
+                  <!-- Menú de navegación responsive (inicialmente oculto) -->
+                  <ul class="hidden md:flex justify-end space-x-8 mt-4">
+                     <li><a href="#inicio"><b>Inicio</b></a></li>
+                     <li><a href="#proyectos"><b>Proyectos</b></a></li>
+                     <li><a href="#servicios"><b>Servicios</b></a></li>
+                     <li><a href="#contacto"><b>Contacto</b></a></li>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+      </header>
       <script>
          // JavaScript para mostrar/ocultar el menú en dispositivos móviles
          const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -96,13 +81,13 @@ nav ul li a:hover:before {
              mobileMenu.classList.toggle('hidden');
          });
          // Aplicar desplazamiento suave a todos los enlaces de anclaje internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-
+         
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
-
+         
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop,
@@ -110,7 +95,7 @@ nav ul li a:hover:before {
                     });
                 }
             });
-        });
+         });
       </script>
       <!-- Sección de Inicio -->
       <section id="inicio" class="py-12 bg-white text-black">
@@ -120,77 +105,63 @@ nav ul li a:hover:before {
             <a href="#contacto" class="bg-blue-500 text-white px-6 py-2 rounded-full mt-4 inline-block hover:bg-blue-600 transition duration-300">Contáctanos</a>
          </div>
       </section>
-
       <!-- Sección de Tecnologías -->
-<section id="tecnologias" class="bg-white text-black py-12">
-   <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-semibold">Tecnologías que Utilizamos</h2>
-      <!-- Iconos de FontAwesome para las tecnologías con nombres -->
-      <div class="flex flex-wrap justify-center mt-6 space-x-4">
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-html5 text-2xl"></i>
-            <span>HTML</span>
+      <section id="tecnologias" class="bg-white text-black py-12">
+         <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold">Tecnologías que Utilizamos</h2>
+            <!-- Iconos de FontAwesome para las tecnologías con nombres -->
+            <div class="flex flex-wrap justify-center mt-6 space-x-4">
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-html5 text-2xl"></i>
+                  <span>HTML</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-js-square text-2xl"></i>
+                  <span>JavaScript</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-react text-2xl"></i>
+                  <span>React</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-ionic text-2xl"></i>
+                  <span>Ionic</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-php text-2xl"></i>
+                  <span>PHP</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fas fa-database text-2xl"></i>
+                  <span>MySQL</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-python text-2xl"></i>
+                  <span>Python</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-node-js text-2xl"></i>
+                  <span>Node.js</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-android text-2xl"></i>
+                  <span>Android</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-apple text-2xl"></i>
+                  <span>iOS</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-github text-2xl"></i>
+                  <span>GitHub</span>
+               </div>
+               <div class="flex items-center space-x-2 mb-4">
+                  <i class="fab fa-angular text-2xl"></i>
+                  <span>Angular</span>
+               </div>
+            </div>
          </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-css3 text-2xl"></i>
-            <span>CSS</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-js-square text-2xl"></i>
-            <span>JavaScript</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-react text-2xl"></i>
-            <span>React</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-ionic text-2xl"></i>
-            <span>Ionic</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-php text-2xl"></i>
-            <span>PHP</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fas fa-database text-2xl"></i>
-            <span>MySQL</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-python text-2xl"></i>
-            <span>Python</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-java text-2xl"></i>
-            <span>Java</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-node-js text-2xl"></i>
-            <span>Node.js</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-android text-2xl"></i>
-            <span>Android</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-apple text-2xl"></i>
-            <span>iOS</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-github text-2xl"></i>
-            <span>GitHub</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-gitlab text-2xl"></i>
-            <span>GitLab</span>
-         </div>
-         <div class="flex items-center space-x-2 mb-4">
-            <i class="fab fa-angular text-2xl"></i>
-            <span>Angular</span>
-         </div>
-         <!-- Puedes agregar más tecnologías aquí -->
-      </div>
-   </div>
-</section>
+      </section>
       <!-- Sección de Servicios en pequeñas tarjetas -->
       <section id="servicios" class="py-12 bg-black text-white">
          <div class="container mx-auto text-center">
@@ -224,92 +195,83 @@ nav ul li a:hover:before {
       <!-- Sección de Proyectos -->
       <section  id="proyectos" class="bg-black text-white py-12">
          <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-semibold">Nuestros Proyectos Destacados</h2>
-            <!-- Aquí puedes agregar tus proyectos usando tarjetas de Tailwind CSS -->
-            <!-- Por ejemplo: -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-               <div class="bg-black p-4 rounded-lg shadow-lg">
-                  <img src="nuevo_nivel.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                  <h3 class="text-xl font-semibold">Nuevo Nivel</h3>
-                  <p class="text-white-600">Aplicación móvil de asesorías académicas.</p>
+         <h2 class="text-3xl font-semibold">Nuestros Proyectos Destacados</h2>
+         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+         <div class="bg-black p-4 rounded-lg shadow-lg">
+            <img src="nuevo_nivel.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+            <h3 class="text-xl font-semibold">Nuevo Nivel</h3>
+            <p class="text-white-600">Aplicación móvil de asesorías académicas.</p>
+         </div>
+         <div class="bg-black p-4 rounded-lg shadow-lg">
+            <img src="/Logo_centrado_de_la_Agencia_Espacial_Mexicana.svg.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+            <h3 class="text-xl font-semibold">Sistema SRV</h3>
+            <p class="text-white-600">Creación de sistema web de control de personal para la Agencia Espacial Mexicana.</p>
+         </div>
+         <div class="bg-black p-4 rounded-lg shadow-lg">
+            <img src="/izc.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+            <h3 class="text-xl font-semibold">Agenda Cultural Zacatecas</h3>
+            <p class="text-white-600">Plataforma web de Eventos Culturales para el Estado de Zacatecas. En desarrollo en conjunto con el COZCyT y LABSOL.</p>
+         </div>
+         <div class="bg-black p-4 rounded-lg shadow-lg">
+            <img src="ISO.jpeg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+            <h3 class="text-xl font-semibold">ISO 29110</h3>
+            <p class="text-white-600">Hemos participado en la defensa de acreditación de la Norma ISO 29110 para la Universidad Tecnológica del Estado de Zacatecas con resultados exitosos.</p>
+         </div>
+         <!--
+            <div class="bg-black p-4 rounded-lg shadow-lg">
+               <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+               <h3 class="text-xl font-semibold">Proyecto 1</h3>
+               <p class="text-white-600">Descripción del proyecto 1.</p>
+            </div>
+            <div class="bg-black p-4 rounded-lg shadow-lg">
+               <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
+               <h3 class="text-xl font-semibold">Proyecto 1</h3>
+               <p class="text-white-600">Descripción del proyecto 1.</p>
+            </div>
+            </div>
+            </div> -->
+      </section>
+      <!-- Sección "Por qué Confiar en Nosotros" con Cards -->
+      <section id="por-que-confiar" class="bg-black text-white py-12">
+         <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold">Por qué Confiar en Nosotros</h2>
+            <p class="text-lg">Nuestro compromiso y experiencia nos hacen la mejor opción.</p>
+            <!-- Tarjetas de confianza -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+               <!-- Tarjeta 1 -->
+               <div class="bg-black text-white p-4 rounded-lg shadow-lg">
+                  <h3 class="text-xl font-semibold mb-2">Experiencia</h3>
+                  <p class="text-gray-300">Contamos con un equipo altamente experimentado en el desarrollo de software.</p>
                </div>
-               <!-- Agregar más tarjetas de proyectos aquí -->
-               <div class="bg-black p-4 rounded-lg shadow-lg">
-                  <img src="/Logo_centrado_de_la_Agencia_Espacial_Mexicana.svg.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                  <h3 class="text-xl font-semibold">Sistema SRV</h3>
-                  <p class="text-white-600">Creación de sistema web de control de personal para la Agencia Espacial Mexicana.</p>
+               <!-- Tarjeta 2 -->
+               <div class="bg-black text-white p-4 rounded-lg shadow-lg">
+                  <h3 class="text-xl font-semibold mb-2">Calidad</h3>
+                  <p class="text-gray-300">Nuestro compromiso es entregar productos de alta calidad que cumplan con tus expectativas.</p>
                </div>
-               <div class="bg-black p-4 rounded-lg shadow-lg">
-                  <img src="/izc.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                  <h3 class="text-xl font-semibold">Agenda Cultural Zacatecas</h3>
-                  <p class="text-white-600">Plataforma web de Eventos Culturales para el Estado de Zacatecas. En desarrollo en conjunto con el COZCyT y LABSOL.</p>
+               <!-- Tarjeta 3 -->
+               <div class="bg-black text-white p-4 rounded-lg shadow-lg">
+                  <h3 class="text-xl font-semibold mb-2">Innovación</h3>
+                  <p class="text-gray-300">Siempre estamos buscando las últimas tendencias y tecnologías para mantenernos actualizados.</p>
                </div>
-               
-               <div class="bg-black p-4 rounded-lg shadow-lg">
-                  <img src="ISO.jpeg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                  <h3 class="text-xl font-semibold">ISO 29110</h3>
-                  <p class="text-white-600">Hemos participado en la defensa de acreditación de la Norma ISO 29110 para la Universidad Tecnológica del Estado de Zacatecas con resultados exitosos.</p>
+               <!-- Tarjeta 4 (Agrega más tarjetas según sea necesario) -->
+               <div class="bg-black text-white p-4 rounded-lg shadow-lg">
+                  <h3 class="text-xl font-semibold mb-2">Compromiso</h3>
+                  <p class="text-gray-300">Nos comprometemos a cumplir con tus objetivos y plazos de entrega.</p>
                </div>
-               <!--
-               <div class="bg-black p-4 rounded-lg shadow-lg">
-                  <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                  <h3 class="text-xl font-semibold">Proyecto 1</h3>
-                  <p class="text-white-600">Descripción del proyecto 1.</p>
-               </div>
-               <div class="bg-black p-4 rounded-lg shadow-lg">
-                  <img src="" class="w-full h-48 object-cover rounded-lg mb-4" alt="Proyecto 1">
-                  <h3 class="text-xl font-semibold">Proyecto 1</h3>
-                  <p class="text-white-600">Descripción del proyecto 1.</p>
+               <!-- Tarjeta 5 -->
+               <div class="bg-black text-white p-4 rounded-lg shadow-lg">
+                  <h3 class="text-xl font-semibold mb-2">Soporte</h3>
+                  <p class="text-gray-300">Ofrecemos un excelente servicio de soporte técnico para resolver tus problemas.</p>
                </div>
             </div>
-         </div> -->
+         </div>
       </section>
-
-      <!-- Sección "Por qué Confiar en Nosotros" con Cards -->
-<section id="por-que-confiar" class="bg-black text-white py-12">
-   <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-semibold">Por qué Confiar en Nosotros</h2>
-      <p class="text-lg">Nuestro compromiso y experiencia nos hacen la mejor opción.</p>
-      <!-- Tarjetas de confianza -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
-         <!-- Tarjeta 1 -->
-         <div class="bg-black text-white p-4 rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold mb-2">Experiencia</h3>
-            <p class="text-gray-300">Contamos con un equipo altamente experimentado en el desarrollo de software.</p>
-         </div>
-         <!-- Tarjeta 2 -->
-         <div class="bg-black text-white p-4 rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold mb-2">Calidad</h3>
-            <p class="text-gray-300">Nuestro compromiso es entregar productos de alta calidad que cumplan con tus expectativas.</p>
-         </div>
-         <!-- Tarjeta 3 -->
-         <div class="bg-black text-white p-4 rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold mb-2">Innovación</h3>
-            <p class="text-gray-300">Siempre estamos buscando las últimas tendencias y tecnologías para mantenernos actualizados.</p>
-         </div>
-         <!-- Tarjeta 4 (Agrega más tarjetas según sea necesario) -->
-         <div class="bg-black text-white p-4 rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold mb-2">Compromiso</h3>
-            <p class="text-gray-300">Nos comprometemos a cumplir con tus objetivos y plazos de entrega.</p>
-         </div>
-         <!-- Tarjeta 5 -->
-         <div class="bg-black text-white p-4 rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold mb-2">Soporte</h3>
-            <p class="text-gray-300">Ofrecemos un excelente servicio de soporte técnico para resolver tus problemas.</p>
-         </div>
-         <!-- Tarjeta 6 (Agrega más tarjetas según sea necesario) -->
-      </div>
-   </div>
-</section>
-
-
       <!-- Sección de Contacto -->
       <section id="contacto" class="py-12 bg-black text-white">
          <div class="container mx-auto text-center">
             <h2 class="text-3xl font-semibold">Contáctanos</h2>
             <p class="text-lg">¡Estamos listos para ayudarte! Ponte en contacto con nosotros.</p>
             <!-- Información de contacto o formulario -->
-            <!-- Puedes agregar enlaces de contacto aquí -->
             <div class="mt-8">
                <div class="flex flex-col items-center md:flex-row md:justify-center md:space-x-4">
                   <ul class="list-none flex space-x-4 mb-4 md:mb-0">
@@ -337,11 +299,11 @@ nav ul li a:hover:before {
                      </li>
                      <li>
                         <!--
-                        <a href="https://twitter.com/" class="text-blue-500 hover:text-blue-700 flex items-center">
-                        <i class="fa-brands fa-threads mr-2"></i> Threads
-                        </a>
-                     </li>
-                     -->
+                           <a href="https://twitter.com/" class="text-blue-500 hover:text-blue-700 flex items-center">
+                           <i class="fa-brands fa-threads mr-2"></i> Threads
+                           </a>
+                           </li>
+                           -->
                   </ul>
                </div>
             </div>
