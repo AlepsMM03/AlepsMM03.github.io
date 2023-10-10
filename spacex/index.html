@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceX Launches</title>
+    <link rel="icon" href="/icon-alex.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-semibold mb-4">SpaceX Launches</h1>
+        <div id="launches-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+        <div id="pagination" class="mt-4"></div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const launchesPerPage = 12;
+
+        function fetchSpaceXLaunches() {
+            fetch("https://api.spacexdata.com/v4/launches")
+                .then(response => response.json())
+                .then(data => {
+                    const launchesList = document.getElementById('launches-list');
+                    launchesList.innerHTML = '';
+
+                    const startIndex = (currentPage - 1) * launchesPerPage;
+                    const endIndex = startIndex + launchesPerPage;
+                    const launchesToShow = data.slice(startIndex, endIndex);
+
+                    if (launchesToShow.length === 0) {
+                        launchesList.innerHTML = '<p class="text-sm">No se encontraron lanzamientos.</p>';
+                    } else {
+                        launchesToShow.forEach(launch => {
+                            const launchCard = document.createElement('div');
+                            launchCard.classList.add('bg-gray-800', 'rounded', 'p-4', 'mb-4');
+
+                            launchCard.innerHTML = `
+                                <h3 class="text-xl font-semibold">${launch.name}</h3>
+                                <p class="text-sm text-gray-400">Fecha de lanzamiento: ${new Date(launch.date_utc).toLocaleDateString()}</p>
+                                <p class="text-sm"><i class="fas fa-rocket mr-2"></i>Exitoso: ${launch.success ? 'Sí' : 'No'}</p>
+                                <p class="text-sm"><i class="fas fa-satellite mr-2"></i>Cohete: ${launch.rocket.name}</p>
+                                <p class="text-sm"><i class="fas fa-globe mr-2"></i>Plataforma de lanzamiento: ${launch.launchpad.name}</p>
+                                <img src="${launch.links.patch.small}" alt="Imagen de lanzamiento" class="mt-2 rounded-lg">
+                            `;
+
+                            launchesList.appendChild(launchCard);
+                        });
+
+                        mostrarPaginacion(data.length);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al consultar la API de SpaceX:', error);
+                    const launchesList = document.getElementById('launches-list');
+                    launchesList.innerHTML = 'No se pudo obtener la información de los lanzamientos de SpaceX.';
+                });
+        }
+
+        function mostrarPaginacion(totalLaunches) {
+            const totalPages = Math.ceil(totalLaunches / launchesPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                pageButton.classList.add('px-3', 'py-1', 'bg-gray-700', 'text-white', 'rounded', 'mr-2', 'focus:outline-none', 'hover:bg-gray-600');
+                pageButton.addEventListener('click', () => {
+                    currentPage = i;
+                    fetchSpaceXLaunches();
+                });
+                pagination.appendChild(pageButton);
+            }
+        }
+
+        fetchSpaceXLaunches();
+    </script>
+</body>
+</html>
