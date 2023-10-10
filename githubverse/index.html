@@ -6,6 +6,8 @@
     <title>GitHubVerse</title>
     <link rel="icon" href="/icon-alex.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- Agregar FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 </head>
@@ -30,7 +32,11 @@
             <h3 class="text-lg font-semibold mb-2">Siguiendo</h3>
         </div>
         <div id="user-stats" class="mt-8 hidden">
-            <h3 class="text-lg font-semibold mb-2">Estadísticas del Usuario</h3>
+            <h3 class="text-lg font-semibold mb-2"><i class="fas fa-chart-bar mr-2"></i>Estadísticas del Usuario</h3>
+            <!-- Aquí se mostrará el gráfico de estadísticas -->
+            <div id="contributions-chart-container">
+                <canvas id="contributions-chart"></canvas>
+            </div>
         </div>
     </div>
     
@@ -48,35 +54,37 @@
         const reposPerPage = 6;
 
         function obtenerInformacion() {
-            const username = document.getElementById('username').value;
-            fetch(`https://api.github.com/users/${username}`)
-                .then(response => response.json())
-                .then(data => {
-                    const userInfo = document.getElementById('user-info');
-                    userInfo.innerHTML = `
-                        <img src="${data.avatar_url}" alt="Foto de perfil de ${data.login}" class="square-image rounded-full mx-auto mb-4">
-                        <h2 class="text-xl font-semibold">${data.login}</h2>
-                        <p class="text-sm"><i class="fas fa-user mr-2"></i>Nombre: ${data.name || 'N/A'}</p>
-                        <p class="text-sm"><i class="fas fa-users mr-2"></i>Seguidores: ${data.followers || 0}</p>
-                        <p class="text-sm"><i class="fas fa-user-friends mr-2"></i>Siguiendo: ${data.following || 0}</p>
-                        <p class="text-sm"><i class="fas fa-code-branch mr-2"></i>Repositorios públicos: ${data.public_repos || 0}</p>
-                        <p class="text-sm"><i class="fas fa-link mr-2"></i>Sitio web: <a href="${data.blog || '#'}" class="text-blue-400 hover:underline">${data.blog || 'N/A'}</a></p>
-                    `;
+    const username = document.getElementById('username').value;
+    fetch(`https://api.github.com/users/${username}`)
+        .then(response => response.json())
+        .then(data => {
+            const userInfo = document.getElementById('user-info');
+            userInfo.innerHTML = `
+                <img src="${data.avatar_url}" alt="Foto de perfil de ${data.login}" class="square-image rounded-full mx-auto mb-4">
+                <h2 class="text-xl font-semibold">${data.login}</h2>
+                <p class="text-sm"><i class="fas fa-user mr-2"></i>Nombre: ${data.name || 'N/A'}</p>
+                <p class="text-sm"><i class="fas fa-users mr-2"></i>Seguidores: ${data.followers || 0}</p>
+                <p class="text-sm"><i class="fas fa-user-friends mr-2"></i>Siguiendo: ${data.following || 0}</p>
+                <p class="text-sm"><i class="fas fa-code-branch mr-2"></i>Repositorios públicos: ${data.public_repos || 0}</p>
+                <p class="text-sm"><i class="fas fa-link mr-2"></i>Sitio web: <a href="${data.blog || '#'}" class="text-blue-400 hover:underline">${data.blog || 'N/A'}</a></p>
+            `;
 
-                    obtenerRepositorios(username);
-                    obtenerSeguidores(username);
-                    obtenerSiguiendo(username);
-                    obtenerEstadisticas(username);
+            obtenerRepositorios(username);
+            obtenerSeguidores(username);
+            obtenerSiguiendo(username);
 
-                    // Generar enlace para compartir
-                    generarEnlaceCompartir(username);
-                })
-                .catch(error => {
-                    console.error('Error al consultar la API de GitHub:', error);
-                    const userInfo = document.getElementById('user-info');
-                    userInfo.innerHTML = 'No se pudo obtener la información del usuario.';
-                });
-        }
+            // Generar enlace para compartir
+            generarEnlaceCompartir(username);
+
+            // Obtener estadísticas y mostrar el gráfico
+            obtenerEstadisticas(username);
+        })
+        .catch(error => {
+            console.error('Error al consultar la API de GitHub:', error);
+            const userInfo = document.getElementById('user-info');
+            userInfo.innerHTML = 'No se pudo obtener la información del usuario.';
+        });
+}
 
         function obtenerRepositorios(username) {
             fetch(`https://api.github.com/users/${username}/repos`)
@@ -169,18 +177,65 @@
                 });
         }
 
+        function mostrarGraficoEstadisticas(contribucionesMensuales) {
+            const userStats = document.getElementById('user-stats');
+            userStats.innerHTML = '';
+
+            const canvas = document.createElement('canvas');
+            canvas.id = 'contributions-chart';
+            userStats.appendChild(canvas);
+
+            const ctx = canvas.getContext('2d');
+
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Mes 1', 'Mes 2', 'Mes 3', 'Mes 4', 'Mes 5', 'Mes 6'],
+                    datasets: [{
+                        label: 'Contribuciones Mensuales',
+                        data: contribucionesMensuales,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Número de Contribuciones'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Meses'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
         function obtenerEstadisticas(username) {
             fetch(`https://api.github.com/users/${username}/events`)
                 .then(response => response.json())
                 .then(eventsData => {
-                    const userStats = document.getElementById('user-stats');
-                    const contributions = eventsData.filter(event => event.type === 'PushEvent').length;
+                    const contributions = eventsData.filter(event => event.type === 'PushEvent');
 
-                    userStats.innerHTML = `
-                        <h3 class="text-lg font-semibold mb-2"><i class="fas fa-chart-line mr-2"></i>Estadísticas del Usuario</h3>
-                        <p class="text-sm"><i class="fas fa-code-branch mr-2"></i>Contribuciones en los últimos 30 días: ${contributions || 0}</p>
-                        <!-- Puedes agregar más estadísticas aquí -->
-                    `;
+                    // Obtener las contribuciones mensuales (últimos 6 meses)
+                    const today = new Date();
+                    const lastSixMonths = [...Array(6).keys()].map(i => {
+                        const month = today.getMonth() - i;
+                        const year = today.getFullYear();
+                        return new Date(year, month, 1).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                    }).reverse();
+
+                    const contribucionesMensuales = lastSixMonths.map(month => contributions.filter(event => new Date(event.created_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) === month).length);
+
+                    mostrarGraficoEstadisticas(contribucionesMensuales);
                 })
                 .catch(error => {
                     console.error('Error al consultar estadísticas del usuario:', error);
