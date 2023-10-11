@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHubVerse</title>
+    <link rel="icon" href="/icon-alex.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Agregar FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Cambiado a fondo negro */
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Cambiado a color de texto blanco */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #user-info {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #000; /* Cambiado a fondo negro */
+        }
+        .repo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 10px 0;
+            border: 1px solid #e2e2e2;
+            background-color: #000; /* Cambiado a fondo negro */
+            color: #fff; /* Cambiado a color de texto blanco */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .repo-card h3 {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .pagination-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+        .pagination-button:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="user-info"></div>
+        <div id="repos-container"></div>
+        <div id="pagination" class="text-center"></div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const reposPerPage = 6;
+
+        // Establecer el nombre de usuario por defecto
+        const defaultUsername = "AlepsMM03";
+
+        function obtenerInformacion() {
+            // Usar el nombre de usuario por defecto
+            const username = defaultUsername;
+
+            fetch(`https://api.github.com/users/${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.innerHTML = `
+                        <h2 class="text-xl font-semibold">Mi GitHub</h2>
+                        <img src="${data.avatar_url}" alt="Foto de perfil de ${data.login}" class="square-image rounded-full mx-auto mb-4" style="max-width: 150px;">
+                        <p class="text-sm"><i class="fas fa-user mr-2"></i>Nombre: ${data.name || 'N/A'}</p>
+                        <p class="text-sm"><i class="fas fa-users mr-2"></i>Seguidores: ${data.followers || 0}</p>
+                        <p class="text-sm"><i class="fas fa-user-friends mr-2"></i>Siguiendo: ${data.following || 0}</p>
+                        <p class="text-sm"><i class="fas fa-code-branch mr-2"></i>Repositorios públicos: ${data.public_repos || 0}</p>
+                        <p class="text-sm"><i class="fas fa-link mr-2"></i>Sitio web: <a href="${data.blog || '#'}" class="text-blue-400 hover:underline">${data.blog || 'N/A'}</a></p>
+                    `;
+
+                    obtenerRepositorios(username);
+                })
+                .catch(error => {
+                    console.error('Error al consultar la API de GitHub:', error);
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.innerHTML = 'No se pudo obtener la información del usuario.';
+                });
+        }
+
+        function obtenerRepositorios(username) {
+            fetch(`https://api.github.com/users/${username}/repos`)
+                .then(response => response.json())
+                .then(data => {
+                    const reposContainer = document.getElementById('repos-container');
+                    reposContainer.innerHTML = '';
+
+                    const startIndex = (currentPage - 1) * reposPerPage;
+                    const endIndex = startIndex + reposPerPage;
+                    const reposToShow = data.slice(startIndex, endIndex);
+
+                    if (reposToShow.length === 0) {
+                        reposContainer.innerHTML = '<p class="text-sm">No se encontraron repositorios.</p>';
+                    } else {
+                        reposToShow.forEach(repo => {
+                            const repoCard = document.createElement('div');
+                            repoCard.classList.add('repo-card');
+
+                            repoCard.innerHTML = `
+                                <h3 class="text-xl font-semibold">${repo.name}</h3>
+                                <p class="text-sm text-gray-400">${repo.description || 'Sin descripción'}</p>
+                                <p class="text-sm"><i class="fas fa-code mr-2"></i>Lenguaje: ${repo.language || 'N/A'}</p>
+                                <p class="text-sm"><i class="far fa-clock mr-2"></i>Última actualización: ${new Date(repo.updated_at).toLocaleDateString()}</p>
+                                <a href="${repo.html_url}" class="text-blue-400 hover:underline"><i class="fas fa-external-link-alt mr-2"></i>Ver en GitHub</a>
+                            `;
+
+                            reposContainer.appendChild(repoCard);
+                        });
+
+                        mostrarPaginacion(data.length);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al consultar la lista de repositorios:', error);
+                });
+        }
+
+        function mostrarPaginacion(totalRepos) {
+            const totalPages = Math.ceil(totalRepos / reposPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                pageButton.classList.add('pagination-button');
+                pageButton.addEventListener('click', () => {
+                    currentPage = i;
+                    obtenerRepositorios(defaultUsername);
+                });
+                pagination.appendChild(pageButton);
+            }
+        }
+
+        // Obtener automáticamente los datos del usuario por defecto al cargar la página
+        obtenerInformacion();
+    </script>
+</body>
+</html>
