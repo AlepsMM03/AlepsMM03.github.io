@@ -11,62 +11,19 @@
     <!-- Agregar FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
-       body {
+        body {
             font-family: Arial, sans-serif;
-            background-color: #000; /* Cambiado a fondo negro */
+            background-color: #000;
             margin: 0;
             padding: 0;
-            color: #fff; /* Cambiado a color de texto blanco */
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        #user-info {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: #000; /* Cambiado a fondo negro */
-        }
-        .repo-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            margin: 10px 0;
-            border: 1px solid #e2e2e2;
-            background-color: #000; /* Cambiado a fondo negro */
-            color: #fff; /* Cambiado a color de texto blanco */
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .repo-card h3 {
-            margin-top: 10px;
-            text-align: center;
-        }
-        .pagination-button {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #4a90e2;
             color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin: 5px;
-        }
-        .pagination-button:hover {
-            background-color: #357abd;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container mx-auto p-4">
         <div id="user-info"></div>
-        <div id="repos-container"></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id="repos-container"></div>
         <div id="pagination" class="text-center"></div>
     </div>
 
@@ -86,14 +43,20 @@
                 .then(data => {
                     const userInfo = document.getElementById('user-info');
                     userInfo.innerHTML = `
-                        <h2 class="text-xl font-semibold">Mi GitHub</h2>
-                        <img src="${data.avatar_url}" alt="Foto de perfil de ${data.login}" class="square-image rounded-full mx-auto mb-4" style="max-width: 150px;">
-                        <p class="text-sm"><i class="fas fa-user mr-2"></i>Nombre: ${data.name || 'N/A'}</p>
-                        <p class="text-sm"><i class="fas fa-users mr-2"></i>Seguidores: ${data.followers || 0}</p>
-                        <p class="text-sm"><i class="fas fa-user-friends mr-2"></i>Siguiendo: ${data.following || 0}</p>
-                        <p class="text-sm"><i class="fas fa-code-branch mr-2"></i>Repositorios públicos: ${data.public_repos || 0}</p>
-                        <p class="text-sm"><i class="fas fa-link mr-2"></i>Sitio web: <a href="${data.blog || '#'}" class="text-blue-400 hover:underline">${data.blog || 'N/A'}</a></p>
+                        <div class="flex justify-center items-center">
+                            <div>
+                                <h2 class="text-2xl font-semibold">Mi GitHub</h2>
+                                <img src="${data.avatar_url}" alt="Foto de perfil de ${data.login}" class="w-32 h-32 rounded-full mx-auto mb-4">
+                                <p class="text-sm"><i class="fas fa-user mr-2"></i>Nombre: ${data.name || 'N/A'}</p>
+                                <p class="text-sm"><i class="fas fa-users mr-2"></i>Seguidores: ${data.followers || 0}</p>
+                                <p class="text-sm"><i class="fas fa-user-friends mr-2"></i>Siguiendo: ${data.following || 0}</p>
+                                <p class="text-sm"><i class="fas fa-code-branch mr-2"></i>Repositorios públicos: ${data.public_repos || 0}</p>
+                                <p class="text-sm"><i class="fas fa-link mr-2"></i>Sitio web: <a href="${data.blog || '#'}" class="text-blue-400 hover:underline">${data.blog || 'N/A'}</a>
+                                <br>
+                            </div>
+                        </div>
                     `;
+
 
                     obtenerRepositorios(username);
                 })
@@ -120,7 +83,7 @@
                     } else {
                         reposToShow.forEach(repo => {
                             const repoCard = document.createElement('div');
-                            repoCard.classList.add('repo-card');
+                            repoCard.classList.add('bg-gray-800', 'p-4', 'rounded', 'shadow-md', 'text-white');
 
                             repoCard.innerHTML = `
                                 <h3 class="text-xl font-semibold">${repo.name}</h3>
@@ -149,7 +112,7 @@
             for (let i = 1; i <= totalPages; i++) {
                 const pageButton = document.createElement('button');
                 pageButton.textContent = i;
-                pageButton.classList.add('pagination-button');
+                pageButton.classList.add('px-3', 'py-1', 'bg-gray-700', 'text-white', 'rounded', 'mr-2', 'focus:outline-none', 'hover:bg-gray-600');
                 pageButton.addEventListener('click', () => {
                     currentPage = i;
                     obtenerRepositorios(defaultUsername);
