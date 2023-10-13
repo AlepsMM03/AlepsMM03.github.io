@@ -100,16 +100,16 @@
             <input type="text" id="estudio" value="Glucosa Oxidasa/Peroxidasa">
          </div>
          <div>
-            <label for="resultado_1">Resultado 1:</label>
-            <input type="text" id="resultado_1" placeholder="Ejemplo: 72.8">
+            <label for="resultado_1">Resultado:</label>
+            <input type="text" id="resultado" placeholder="Ejemplo: 72.8">
          </div>
          <div>
             <label for="unidad">Unidad:</label>
             <input type="text" id="unidad" value="mg/dl">
          </div>
          <div>
-            <label for="resultado">Resultado:</label>
-            <input type="text" id="resultado" placeholder="Ejemplo: 70-100">
+            <label for="resultado">Referencia:</label>
+            <input type="text" id="referencia" placeholder="Ejemplo: 70-100">
          </div>
          
          <input type="file" id="docxTemplateInput">Selecciona la plantilla de Word</input>
@@ -136,9 +136,9 @@
                   "fecha_elaboracion": document.getElementById("fecha_elaboracion").value,
                   "fecha_impresion": document.getElementById("fecha_impresion").value,
                   "estudio": document.getElementById("estudio").value,
-                  "resultado_1": document.getElementById("resultado_1").value,
+                  "resultado": document.getElementById("resultado").value,
                   "unidad": document.getElementById("unidad").value,
-                  "resultado": document.getElementById("resultado").value
+                  "referencia": document.getElementById("referencia").value
                };
                doc.setData(data);
                doc.render(); 
