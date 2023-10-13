@@ -35,27 +35,36 @@
          flex-direction: column;
          align-items: center;
       }
-      textarea {
+      label {
+         font-weight: bold;
+      }
+      input[type="text"], input[type="date"] {
          width: 100%;
-         height: 200px;
          padding: 10px;
          border: 1px solid #ccc;
          border-radius: 5px;
-         resize: none;
-         margin-top: 10px;
+         margin: 5px 0;
+      }
+      select {
+         width: 100%;
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         margin: 5px 0;
       }
       input[type="file"] {
          width: 100%;
          padding: 10px;
          border: 1px solid #ccc;
          border-radius: 5px;
-         margin-top: 10px;
+         margin: 10px 0;
       }
       .footer {
          text-align: center;
          font-size: 14px;
          color: #777;
          margin-top: 20px;
+         clear: both; /* Añade esta propiedad para que el footer se muestre debajo de todo */
          position: absolute;
          bottom: 0;
          left: 0;
@@ -70,19 +79,46 @@
    <div class="container">
       <h1>Generador de análisis clínicos</h1>
       <div class="textarea-container">
-         <textarea id="templateText">
-            {
-               "nombre": "Alex",
-               "sexo": "Masculino",
-               "edad": "21",
-               "fecha_elaboracion": "12/12/2019",
-               "fecha_impresion": "12/12/2019",
-               "estudio": "Glucosa Oxidasa/Peroxidasa",
-               "resultado_1": "72,8",
-               "unidad": "mg/dl",
-               "resultado": "70-100"
-            }
-         </textarea>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre">
+         </div>
+         <div>
+            <label for="sexo">Sexo:</label>
+            <select id="sexo">
+               <option value="Masculino" selected>Masculino</option>
+               <option value="Femenino">Femenino</option>
+            </select>
+         </div>
+         <div>
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad">
+         </div>
+         <div>
+            <label for="fecha_elaboracion">Fecha de Elaboración:</label>
+            <input type="date" id="fecha_elaboracion">
+         </div>
+         <div>
+            <label for="fecha_impresion">Fecha de Impresión:</label>
+            <input type="date" id="fecha_impresion">
+         </div>
+         <div>
+            <label for="estudio">Estudio:</label>
+            <input type="text" id="estudio" value="Glucosa Oxidasa/Peroxidasa">
+         </div>
+         <div>
+            <label for="resultado_1">Resultado 1:</label>
+            <input type="text" id="resultado_1" placeholder="Ejemplo: 72.8">
+         </div>
+         <div>
+            <label for="unidad">Unidad:</label>
+            <input type="text" id="unidad" value="mg/dl">
+         </div>
+         <div>
+            <label for="resultado">Resultado:</label>
+            <input type="text" id="resultado" placeholder="Ejemplo: 70-100">
+         </div>
+         
          <input type="file" id="docxTemplateInput">Selecciona la plantilla de Word</input>
       </div>
    </div>
@@ -100,8 +136,17 @@
             r.onload = function(e) {
                var contents = e.target.result;
                doc = new window.Docxgen(contents);
-               var text = document.getElementById("templateText").value;
-               var data = JSON.parse(text);
+               var data = {
+                  "nombre": document.getElementById("nombre").value,
+                  "sexo": document.getElementById("sexo").value,
+                  "edad": document.getElementById("edad").value,
+                  "fecha_elaboracion": document.getElementById("fecha_elaboracion").value,
+                  "fecha_impresion": document.getElementById("fecha_impresion").value,
+                  "estudio": document.getElementById("estudio").value,
+                  "resultado_1": document.getElementById("resultado_1").value,
+                  "unidad": document.getElementById("unidad").value,
+                  "resultado": document.getElementById("resultado").value
+               };
                doc.setData(data);
                doc.render(); 
                out = doc.getZip().generate({
