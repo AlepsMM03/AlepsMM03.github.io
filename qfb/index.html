@@ -8,9 +8,6 @@
    <style>
       body {
          background-color: #f0f0f0;
-         display: flex;
-         align-items: center;
-         justify-content: center;
          min-height: 100vh;
          margin: 0;
          font-family: Arial, sans-serif;
@@ -22,18 +19,18 @@
          padding: 20px;
          max-width: 600px;
          width: 100%;
-         position: relative;
+         margin: 0 auto; /* Centra el contenedor horizontalmente */
       }
       h1 {
          font-size: 24px;
          font-weight: bold;
-         text-align: center;
+         text-align: left; /* Alinea el título a la izquierda */
          margin-bottom: 20px;
       }
       .textarea-container {
          display: flex;
          flex-direction: column;
-         align-items: center;
+         align-items: flex-start; /* Alinea los elementos a la izquierda */
       }
       label {
          font-weight: bold;
@@ -64,11 +61,7 @@
          font-size: 14px;
          color: #777;
          margin-top: 20px;
-         clear: both; /* Añade esta propiedad para que el footer se muestre debajo de todo */
-         position: absolute;
-         bottom: 0;
-         left: 0;
-         right: 0;
+         clear: both;
       }
    </style>
    <script src="libs/FileSaver.js"></script>
@@ -122,7 +115,6 @@
          <input type="file" id="docxTemplateInput">Selecciona la plantilla de Word</input>
       </div>
    </div>
-   <br>
    <div class="footer">
       &copy; 2023 Análisis Clínicos - QFB | Desarrollado por Alex Montes
    </div>
