@@ -78,6 +78,51 @@
       .file-input-container p {
          margin-top: 5px;
       }
+      .download-button, .generate-button {
+         margin-top: 20px;
+         text-align: center;
+      }
+      .download-button button, .generate-button button {
+         background-color: #4CAF50;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 16px;
+      }
+      .download-button button:hover, .generate-button button:hover {
+         background-color: #45a049;
+      }
+      #file-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px;
+   border-radius: 5px;
+   background-color: #f0f0f0; /* Fondo gris claro */
+}
+
+#file-container input[type="file"] {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   margin: 10px 0;
+   background-color: #fff; /* Fondo blanco */
+   transition: border-color 0.3s; /* Efecto de transición en el color del borde */
+}
+
+#file-container input[type="file"]:hover {
+   border-color: #3d7f9e; /* Color del borde al pasar el ratón sobre él */
+}
+
+#file-container p {
+   margin-top: 10px;
+   font-weight: bold;
+   color: #333;
+}
+
    </style>
    <script src="libs/FileSaver.js"></script>
    <script src="libs/jszip-utils.js"></script>
@@ -86,13 +131,19 @@
 <body onload="onLoad()">
    <div class="container">
       <h1>Generador de análisis clínicos</h1>
+      
       <div class="textarea-container">
+        <div class="download-button">
+            <button onclick="downloadTemplate()">Descargar Plantilla</button>
+         </div>
+         <br>
          <div>
+            
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre">
          </div>
          <div>
-            <label for="sexo">Sexo:</label>
+            <label for "sexo">Sexo:</label>
             <select id="sexo">
                <option value="Masculino" selected>Masculino</option>
                <option value="Femenino">Femenino</option>
@@ -126,10 +177,10 @@
             <label for="resultado">Referencia:</label>
             <input type="text" id="referencia" placeholder="Ejemplo: 70-100">
          </div>
-         <div class="file-input-container">
+         <div class="file-input-container" id="file-container">
             <input type="file" id="docxTemplateInput">
             <p>Selecciona la plantilla de Word</p>
-         </div>
+         </div>         
       </div>
    </div>
    <div class="footer">
@@ -138,6 +189,9 @@
    <script>
       function onLoad(){
          document.getElementById("docxTemplateInput").addEventListener("change", readTemplateFile);
+      }
+      function downloadTemplate() {
+         window.location.href = "analisis_clinicos.docx";
       }
       readTemplateFile = function(evt) {
          var f = evt.target.files[0];
