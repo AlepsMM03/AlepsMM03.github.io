@@ -7,7 +7,8 @@
    <link rel="icon" href="logo.png" type="image/png">
    <style>
       body {
-         background-color: #f0f0f0;
+         font-family: "Helvetica", Sans-Serif;
+         background-color: #3d7f9e;
          min-height: 100vh;
          margin: 0;
          font-family: Arial, sans-serif;
@@ -19,18 +20,18 @@
          padding: 20px;
          max-width: 600px;
          width: 100%;
-         margin: 0 auto; /* Centra el contenedor horizontalmente */
+         margin: 0 auto;
       }
       h1 {
          font-size: 24px;
          font-weight: bold;
-         text-align: left; /* Alinea el título a la izquierda */
+         text-align: left;
          margin-bottom: 20px;
       }
       .textarea-container {
          display: flex;
          flex-direction: column;
-         align-items: flex-start; /* Alinea los elementos a la izquierda */
+         align-items: flex-start;
       }
       label {
          font-weight: bold;
@@ -59,9 +60,24 @@
       .footer {
          text-align: center;
          font-size: 14px;
-         color: #777;
+         color: #000000;
          margin-top: 20px;
          clear: both;
+      }
+      .file-input-container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+      .file-input-container input[type="file"] {
+         width: 100%;
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         margin: 5px 0;
+      }
+      .file-input-container p {
+         margin-top: 5px;
       }
    </style>
    <script src="libs/FileSaver.js"></script>
@@ -72,7 +88,7 @@
    <div class="container">
       <h1>Generador de análisis clínicos</h1>
       <div class="textarea-container">
-        <div>
+         <div>
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre">
          </div>
@@ -111,13 +127,15 @@
             <label for="resultado">Referencia:</label>
             <input type="text" id="referencia" placeholder="Ejemplo: 70-100">
          </div>
-         
-         <input type="file" id="docxTemplateInput">Selecciona la plantilla de Word</input>
+         <div class="file-input-container">
+            <input type="file" id="docxTemplateInput">
+            <p>Selecciona la plantilla de Word</p>
+         </div>
       </div>
    </div>
    <div class="footer">
-    &copy; 2023 Análisis Clínicos - QFB | Desarrollado por <a href="https://alepsmm03.github.io/" target="_blank">Alex Montes</a>
- </div> 
+      &copy; 2023 Análisis Clínicos - QFB | Desarrollado por <a href="https://alepsmm03.github.io/" target="_blank">Alex Montes</a>
+   </div>
    <script>
       function onLoad(){
          document.getElementById("docxTemplateInput").addEventListener("change", readTemplateFile);
@@ -141,7 +159,7 @@
                   "referencia": document.getElementById("referencia").value
                };
                doc.setData(data);
-               doc.render(); 
+               doc.render();
                out = doc.getZip().generate({
                   type : "blob"
                });
