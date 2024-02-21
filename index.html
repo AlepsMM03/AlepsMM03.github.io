@@ -161,8 +161,17 @@
 
     <!-- Footer -->
     <footer class="bg-gray-700 py-8 text-center">
-        <p class="text-gray-500">&copy; 2023 Alex Montes. Todos los derechos reservados.</p>
+        <p id="copyright" class="text-gray-500"></p>
     </footer>
+    
+    <script>
+        var yearElement = document.getElementById("copyright");
+        
+        var currentYear = new Date().getFullYear();
+        
+        yearElement.textContent = "\u00A9 " + currentYear + " Alex Montes. Todos los derechos reservados.";
+    </script>
+    
 
 </body>
 </html>
