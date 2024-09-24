@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seguimiento de la ISS en Tiempo Real</title>
+    <title>Seguimiento de la Estación Espacial Internacional (ISS)</title>
     
     <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -41,7 +41,7 @@
         var marker = L.marker([0, 0], {icon: issIcon}).addTo(map);
         
         async function getISSPosition() {
-            const response = await fetch('http://api.open-notify.org/iss-now.json');
+            const response = await fetch('https://api.open-notify.org/iss-now.json'); // Cambiado a https
             const data = await response.json();
             const latitude = parseFloat(data.iss_position.latitude);
             const longitude = parseFloat(data.iss_position.longitude);
