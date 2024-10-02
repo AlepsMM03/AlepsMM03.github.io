@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    transition: background-color 0.5s ease;
+}
+
+.weather {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.clear {
+    background-color: #87CEFA; /* Cielo despejado */
+}
+
+.rain {
+    background-color: #4682B4; /* Lluvia */
+}
+
+.snow {
+    background-color: #B0E0E6; /* Nieve */
+}
+
+.cloudy {
+    background-color: #D3D3D3; /* Nublado */
+}
+
+.thunder {
+    background-color: #A9A9A9; /* Tormenta */
+}
+
+h2, h3, p {
+    color: #333;
+}
