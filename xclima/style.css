@@ -12,23 +12,23 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.clear {
+.despejado {
     background-color: #87CEFA; /* Cielo despejado */
 }
 
-.rain {
+.lluvia {
     background-color: #4682B4; /* Lluvia */
 }
 
-.snow {
+.nieve {
     background-color: #B0E0E6; /* Nieve */
 }
 
-.cloudy {
+.nublado {
     background-color: #D3D3D3; /* Nublado */
 }
 
-.thunder {
+.tormenta {
     background-color: #A9A9A9; /* Tormenta */
 }
 
