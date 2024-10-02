@@ -1,6 +1,6 @@
 // const apiKey = 'jsDu6khGaEp7OQUZ';
 const apiKey = 'jsDu6khGaEp7OQUZ'; // Cambia esto por tu API key
-const weatherApiUrl = 'http://my.meteoblue.com/packages/basic-1h_basic-day?lat={lat}&lon={lon}&apikey=' + apiKey;
+const weatherApiUrl = 'https://my.meteoblue.com/packages/basic-1h_basic-day?lat={lat}&lon={lon}&apikey=' + apiKey;
 
 function getWeather(lat, lon) {
     const apiUrl = weatherApiUrl.replace('{lat}', lat).replace('{lon}', lon);
