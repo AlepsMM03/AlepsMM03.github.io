@@ -1,5 +1,4 @@
-// const apiKey = 'jsDu6khGaEp7OQUZ';
-const apiKey = 'jsDu6khGaEp7OQUZ'; // Cambia esto por tu API key
+const apiKey = 'jsDu6khGaEp7OQUZ';
 const weatherApiUrl = 'https://my.meteoblue.com/packages/basic-1h_basic-day?lat={lat}&lon={lon}&apikey=' + apiKey;
 
 function getWeather(lat, lon) {
@@ -15,29 +14,34 @@ function getWeather(lat, lon) {
             const rain = currentData.precipitation_probability[0]; // Probabilidad de precipitación
             const windSpeed = currentData.windspeed[0]; // Velocidad del viento
             
+            // Obtener la hora local
+            const currentTime = new Date(); // Hora local actual
+            const localTimezone = data.metadata.timezone_abbrevation; // Zona horaria
+
+            // Cambia el fondo según la condición
             let currentCondition;
             let emoji;
 
             // Determina la condición climática
             if (snowFraction > 0) {
-                currentCondition = 'snow';
+                currentCondition = 'nieve'; // Nombre de la clase en español
                 emoji = '❄️'; // Emoji de nieve
             } else if (rain > 50) {
-                currentCondition = 'rain';
+                currentCondition = 'lluvia'; // Nombre de la clase en español
                 emoji = '🌧️'; // Emoji de lluvia
             } else if (windSpeed > 10) {
-                currentCondition = 'thunder'; // Posible tormenta
+                currentCondition = 'tormenta'; // Nombre de la clase en español
                 emoji = '🌩️'; // Emoji de tormenta
             } else if (currentTemperature < 10) {
-                currentCondition = 'cold';
+                currentCondition = 'frio'; // Nombre de la clase en español
                 emoji = '🧊'; // Emoji de frío
             } else {
-                currentCondition = 'clear';
+                currentCondition = 'despejado'; // Nombre de la clase en español
                 emoji = '☀️'; // Emoji de sol
             }
 
-            // Cambia el fondo según la condición
-            document.body.className = currentCondition;
+            // Cambia la clase del body para el fondo
+            document.body.className = currentCondition; // Aplica la clase correspondiente al body
 
             // Mostrar la ubicación del usuario
             const weatherContainer = document.getElementById('weather-container');
@@ -47,6 +51,11 @@ function getWeather(lat, lon) {
             document.getElementById('condition').innerText = `Condición: ${currentCondition.charAt(0).toUpperCase() + currentCondition.slice(1)}`;
             document.getElementById('wind-speed').innerText = `Velocidad del viento: ${windSpeed} m/s`;
             document.getElementById('emoji').innerText = emoji; // Muestra el emoji
+
+            // Mostrar la hora actual
+            updateClock(); // Llama a la función para actualizar la hora
+            setInterval(updateClock, 1000); // Actualiza la hora cada segundo
+
         } else {
             const weatherContainer = document.getElementById('weather-container');
             weatherContainer.innerHTML = '<h2>No se pudo obtener el clima.</h2>';
@@ -79,6 +88,12 @@ function getLocation() {
     } else {
         alert("La geolocalización no es soportada por este navegador.");
     }
+}
+
+// Función para actualizar la hora en tiempo real
+function updateClock() {
+    const currentTime = new Date(); // Hora local actual
+    document.getElementById('current-time').innerText = `Hora actual: ${currentTime.toLocaleTimeString()}`; // Muestra la hora
 }
 
 getLocation(); // Obtiene la ubicación del usuario
