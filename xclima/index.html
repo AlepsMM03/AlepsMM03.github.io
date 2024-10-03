@@ -4,19 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clima Actual</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <!-- Weather Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1536250695484-36ed15d06abf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed; /* Imagen de fondo */
+            background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
+            color: rgb(0, 0, 0); /* Color del texto */
+        }
+        #weather-container {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        #temperature {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .small-info {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #777;
+        }
+        #weather-icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        #emoji {
+            font-size: 2.5rem;
+        }
+        #forecast {
+            margin-top: 20px;
+        }
+        #forecast h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .forecast-day {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        #loader {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Loader -->
+    <div id="loader">Cargando...</div>
+
+    <!-- Weather Container -->
     <div id="weather-container">
         <h1>Clima Actual</h1>
-        <div id="location"></div>
+        <div id="location" class="small-info"></div>
         <div id="temperature"></div>
-        <div id="condition"></div>
-        <div id="wind-speed"></div>
-        <div id="emoji" style="font-size: 2rem;"></div>
-        <div id="current-time"></div> <!-- Nueva línea para mostrar la hora -->
+        <i id="weather-icon" class="wi"></i>
+        <div id="condition" class="small-info"></div>
+        <div id="wind-speed" class="small-info"></div>
+        <div id="emoji"></div>
+        <div id="current-time" class="small-info"></div>
+
+        <!-- Pronóstico a 3 días -->
+        <div id="forecast">
+            <h2>Pronóstico próximos 3 días</h2>
+            <div id="forecast-day-1" class="forecast-day"></div>
+            <div id="forecast-day-2" class="forecast-day"></div>
+            <div id="forecast-day-3" class="forecast-day"></div>
+        </div>
     </div>
+
     <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

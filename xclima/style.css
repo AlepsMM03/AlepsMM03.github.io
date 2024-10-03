@@ -35,3 +35,29 @@ body {
 h2, h3, p {
     color: #333;
 }
+#loader {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #333;
+}
+
+#weather-container {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#weather-container.show {
+    opacity: 1;
+}
+
+#forecast {
+    margin-top: 20px;
+}
+
+#forecast-day-1, #forecast-day-2, #forecast-day-3 {
+    margin-top: 10px;
+}
