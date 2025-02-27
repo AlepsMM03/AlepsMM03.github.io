@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons"></script>
     <style>
         * {
             margin: 0;
@@ -88,6 +89,12 @@
             h1 { font-size: 2rem; }
             .countdown { font-size: 1.5rem; }
         }
+
+        .icon {
+            margin-right: 8px;
+            color: #66ccff;
+        }
+
     </style>
 </head>
 <body>
@@ -100,9 +107,11 @@
     </div>
 
     <div class="text-container" id="textContainer" style="display: none;">
-        <h1 id="invitationTitle">Festejo de mi Cumpleaños</h1>
-        <p>1 de marzo, 4:00 PM</p>
-        <p>En mi casa</p>
+        <h1 id="invitationTitle">
+            <i data-feather="gift" class="icon"></i> Festejo de mi Cumpleaños
+        </h1>
+        <p><i data-feather="calendar" class="icon"></i> 1 de marzo, 4:00 PM</p>
+        <p><i data-feather="home" class="icon"></i> En mi casa</p><br>
         <p id="personalizedMessage"></p>
         <div class="countdown" id="countdown"></div>
     </div>
@@ -210,6 +219,9 @@
 
             setInterval(updateCountdown, 1000);
         }
+
+        // Iniciar los iconos Feather
+        feather.replace();
     </script>
 </body>
 </html>
