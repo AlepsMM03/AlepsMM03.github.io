@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación 3D</title>
+    <title>Invitación 3D Futurista</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         * {
@@ -42,32 +42,41 @@
 
         h1 {
             font-size: 3rem;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-            margin-bottom: 10px;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 50px rgba(0, 255, 255, 0.7);
+            margin-bottom: 20px;
+            color: #00ffff;
+            animation: pulse 2s infinite;
         }
 
         p {
-            font-size: 1.2rem;
-            margin-top: 5px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            font-size: 1.5rem;
+            margin-top: 10px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
 
         .countdown {
-            font-size: 2rem;
-            margin-top: 30px;
+            font-size: 2.5rem;
+            margin-top: 40px;
             font-weight: bold;
             animation: float 2s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            color: #ff6600;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
         }
 
         @keyframes float {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-20px); }
             100% { transform: translateY(0); }
         }
 
+        @keyframes pulse {
+            0% { text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 50px rgba(0, 255, 255, 0.7); }
+            50% { text-shadow: 0 0 35px rgba(255, 255, 255, 1), 0 0 70px rgba(0, 255, 255, 1); }
+            100% { text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 50px rgba(0, 255, 255, 0.7); }
+        }
+
         @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2rem; }
             .countdown { font-size: 1.5rem; }
         }
     </style>
@@ -91,20 +100,31 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Partículas flotantes más dinámicas
-        let particleCount = 1000;
+        // Fondo de galaxia con partículas flotantes
+        let particleCount = 5000;
         let particles = new THREE.BufferGeometry();
         let positions = new Float32Array(particleCount * 3);
+        let sizes = new Float32Array(particleCount);
+        let colors = new Float32Array(particleCount * 3);
 
         for (let i = 0; i < particleCount * 3; i++) {
             positions[i] = (Math.random() - 0.5) * 100;
         }
 
+        for (let i = 0; i < particleCount; i++) {
+            sizes[i] = Math.random() * 1.5 + 0.5; // Random size for particles
+            colors[i * 3 + 0] = Math.random(); // Red channel
+            colors[i * 3 + 1] = Math.random(); // Green channel
+            colors[i * 3 + 2] = Math.random(); // Blue channel
+        }
+
         particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particles.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+        particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
         let particleMaterial = new THREE.PointsMaterial({
-            color: 0x00ffff,
             size: 0.05,
+            vertexColors: true,
             blending: THREE.AdditiveBlending,
             transparent: true
         });
@@ -112,7 +132,7 @@
         let particleSystem = new THREE.Points(particles, particleMaterial);
         scene.add(particleSystem);
 
-        // Luces dinámicas con efecto de movimiento
+        // Luz dinámica para darle profundidad al fondo
         let light1 = new THREE.PointLight(0xffcc00, 2, 50);
         let light2 = new THREE.PointLight(0xff6600, 2, 50);
         light1.position.set(0, 10, 20);
@@ -121,21 +141,25 @@
 
         camera.position.z = 50;
 
-        // Animación 3D de partículas y luces
+        // Efecto de distorsión y movimiento de partículas
         function animate() {
             requestAnimationFrame(animate);
-            particleSystem.rotation.y += 0.002;
+
+            particleSystem.rotation.y += 0.005;
+            particleSystem.position.x = Math.sin(Date.now() * 0.002) * 10;
+            particleSystem.position.y = Math.cos(Date.now() * 0.003) * 10;
             light1.position.x = Math.sin(Date.now() * 0.002) * 30;
             light2.position.y = Math.cos(Date.now() * 0.002) * 30;
+
             renderer.render(scene, camera);
         }
         animate();
 
-        // Efecto 3D en el texto
+        // Efecto de distorsión en el texto
         let textContainer = document.getElementById("invitation");
         document.addEventListener("mousemove", (e) => {
-            let x = (window.innerWidth / 2 - e.pageX) / 40;
-            let y = (window.innerHeight / 2 - e.pageY) / 40;
+            let x = (window.innerWidth / 2 - e.pageX) / 30;
+            let y = (window.innerHeight / 2 - e.pageY) / 30;
             textContainer.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
         });
 
@@ -146,7 +170,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Contador regresivo
+        // Contador interactivo
         const birthday = new Date("March 1, 2025 16:00:00").getTime();
 
         function updateCountdown() {
