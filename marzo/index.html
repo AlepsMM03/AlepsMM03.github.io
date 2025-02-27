@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación 3D</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .text-container {
+            position: relative;
+            padding: 20px;
+            z-index: 1;
+            transition: transform 0.2s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .countdown {
+            font-size: 2rem;
+            margin-top: 30px;
+            font-weight: bold;
+            animation: float 2s infinite ease-in-out;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .countdown { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="scene"></canvas>
+
+    <div class="text-container" id="invitation">
+        <h1>¡Mi Cumpleaños! 🎉</h1>
+        <p>📅 01 de Marzo | 🕖 4:00 PM</p>
+        <p>📍 Mi casa</p>
+        <div class="countdown" id="countdown"></div>
+    </div>
+
+    <script>
+        // Configuración de Three.js
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        let renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("scene"), alpha: true });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Partículas flotantes más dinámicas
+        let particleCount = 1000;
+        let particles = new THREE.BufferGeometry();
+        let positions = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount * 3; i++) {
+            positions[i] = (Math.random() - 0.5) * 100;
+        }
+
+        particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        let particleMaterial = new THREE.PointsMaterial({
+            color: 0x00ffff,
+            size: 0.05,
+            blending: THREE.AdditiveBlending,
+            transparent: true
+        });
+
+        let particleSystem = new THREE.Points(particles, particleMaterial);
+        scene.add(particleSystem);
+
+        // Luces dinámicas con efecto de movimiento
+        let light1 = new THREE.PointLight(0xffcc00, 2, 50);
+        let light2 = new THREE.PointLight(0xff6600, 2, 50);
+        light1.position.set(0, 10, 20);
+        light2.position.set(10, -10, -20);
+        scene.add(light1, light2);
+
+        camera.position.z = 50;
+
+        // Animación 3D de partículas y luces
+        function animate() {
+            requestAnimationFrame(animate);
+            particleSystem.rotation.y += 0.002;
+            light1.position.x = Math.sin(Date.now() * 0.002) * 30;
+            light2.position.y = Math.cos(Date.now() * 0.002) * 30;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Efecto 3D en el texto
+        let textContainer = document.getElementById("invitation");
+        document.addEventListener("mousemove", (e) => {
+            let x = (window.innerWidth / 2 - e.pageX) / 40;
+            let y = (window.innerHeight / 2 - e.pageY) / 40;
+            textContainer.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+
+        // Ajustar tamaño en cambio de ventana
+        window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Contador regresivo
+        const birthday = new Date("March 1, 2025 16:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = birthday - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const countdownText = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+
+            document.getElementById("countdown").innerHTML = `Faltan: ${countdownText}`;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "¡Es el día! 🎉";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
