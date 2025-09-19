@@ -1,228 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: #101010;
-            color: #F2F2F2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            text-align: center;
-            font-size: 18px;
-        }
-
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .text-container {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: #fff;
-            font-weight: 500;
-            padding: 20px;
-        }
-
-        .name-input-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-        }
-
-        .name-input-container input {
-            padding: 10px;
-            margin: 10px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .name-input-container button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            background-color: #66ccff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        h1 {
-            font-size: 3rem;
-            color: #e6e6e6;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .countdown {
-            font-size: 2rem;
-            margin-top: 30px;
-            font-weight: bold;
-            color: #66ccff;
-        }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .countdown { font-size: 1.5rem; }
-        }
-
-        .icon {
-            margin-right: 8px;
-            color: #66ccff;
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad - CryptaX</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+  }
+  h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  p, li {
+    color: #b0b0b0;
+  }
+  ol {
+    padding-left: 20px;
+  }
+  .section {
+    margin-bottom: 20px;
+  }
+  a {
+    color: #2196f3;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
 </head>
 <body>
-    <canvas id="scene"></canvas>
 
-    <div class="name-input-container" id="nameInputContainer">
-        <h2>Por favor ingresa tu nombre</h2>
-        <input type="text" id="nameInput" placeholder="Tu nombre">
-        <button onclick="showInvitation()">Enviar</button>
-    </div>
+<h1>Política de Privacidad</h1>
 
-    <div class="text-container" id="textContainer" style="display: none;">
-        <h1 id="invitationTitle">
-            <i data-feather="gift" class="icon"></i> Festejo de mi Cumpleaños
-        </h1>
-        <p><i data-feather="calendar" class="icon"></i> 1 de marzo, 4:00 PM</p>
-        <p><i data-feather="home" class="icon"></i> En mi casa</p><br>
-        <p id="personalizedMessage"></p>
-        <div class="countdown" id="countdown"></div>
-    </div>
+<div class="section">
+<p>En <strong>CryptaX</strong>, tu privacidad y anonimato son nuestra máxima prioridad.</p>
 
-    <script>
-        // Función para mostrar la invitación después de ingresar el nombre
-        function showInvitation() {
-            const name = document.getElementById("nameInput").value;
-            if (name.trim() === "") {
-                alert("Por favor ingresa tu nombre.");
-                return;
-            }
+<ol>
+  <li><strong>Datos recopilados:</strong> Solo requerimos tu correo electrónico como método de acceso y recuperación de contraseña. Este correo se almacena de manera segura, pero no puede ser consultado ni utilizado por los administradores o terceros.</li>
+  
+  <li><strong>Anonimato:</strong> No recopilamos información personal identificable ni vinculamos tus publicaciones con tu identidad real. Todo lo que compartes en la app es completamente anónimo.</li>
+  
+  <li><strong>Retención de datos:</strong> Las publicaciones, interacciones y mensajes se eliminan de manera automática cada 24 horas. No se guarda historial permanente de tus actividades dentro de la app.</li>
+  
+  <li><strong>Uso de la información:</strong> Los datos mínimos que almacenamos se utilizan únicamente para permitir el acceso seguro a tu cuenta. No vendemos, compartimos ni explotamos tus datos con fines comerciales.</li>
+  
+  <li><strong>Seguridad:</strong> Implementamos medidas técnicas para proteger tu correo y garantizar el anonimato. Aun así, ningún sistema es 100% infalible, pero reducimos al mínimo la recolección de información para minimizar riesgos.</li>
+  
+  <li><strong>Eliminación de datos:</strong> Puedes solicitar la eliminación de tu cuenta en cualquier momento, lo que borrará de forma definitiva tu correo asociado y cualquier información vinculada.</li>
+  
+  <li><strong>Cambios en esta política:</strong> Esta política puede modificarse para mejorar la protección de tu privacidad. En caso de cambios relevantes, se notificará dentro de la app.</li>
+</ol>
 
-            document.getElementById("nameInputContainer").style.display = "none";
-            document.getElementById("textContainer").style.display = "block";
-            document.getElementById("personalizedMessage").innerText = `${name}, estás invitado/a a mi festejo de cumpleaños!`;
+<p>Al usar la aplicación, confirmas que aceptas esta Política de Privacidad.</p>
+</div>
 
-            // Configuración de Three.js para fondo elegante
-            let scene = new THREE.Scene();
-            let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            let renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("scene"), alpha: true });
-
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.body.appendChild(renderer.domElement);
-
-            // Fondo con partículas suaves
-            let particleCount = 1000;
-            let particles = new THREE.BufferGeometry();
-            let positions = new Float32Array(particleCount * 3);
-            let sizes = new Float32Array(particleCount);
-            let colors = new Float32Array(particleCount * 3);
-
-            for (let i = 0; i < particleCount * 3; i++) {
-                positions[i] = (Math.random() - 0.5) * 50;
-            }
-
-            for (let i = 0; i < particleCount; i++) {
-                sizes[i] = Math.random() * 0.3 + 0.2; // Partículas pequeñas
-                colors[i * 3 + 0] = 0.6 + Math.random() * 0.4;
-                colors[i * 3 + 1] = 0.6 + Math.random() * 0.4;
-                colors[i * 3 + 2] = 0.8 + Math.random() * 0.2;
-            }
-
-            particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            particles.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-            particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-            let particleMaterial = new THREE.PointsMaterial({
-                size: 0.1,
-                vertexColors: true,
-                blending: THREE.AdditiveBlending,
-                transparent: true,
-                opacity: 0.6
-            });
-
-            let particleSystem = new THREE.Points(particles, particleMaterial);
-            scene.add(particleSystem);
-
-            // Luz suave para agregar un toque de profundidad
-            let light1 = new THREE.PointLight(0x66ccff, 1.2, 40);
-            light1.position.set(0, 10, 20);
-            scene.add(light1);
-
-            camera.position.z = 40;
-
-            // Movimiento suave de partículas
-            function animate() {
-                requestAnimationFrame(animate);
-
-                particleSystem.rotation.y += 0.0002;
-                particleSystem.position.x = Math.sin(Date.now() * 0.001) * 2;
-                particleSystem.position.y = Math.cos(Date.now() * 0.001) * 2;
-
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            // Ajustar tamaño del lienzo al cambiar tamaño de la ventana
-            window.addEventListener("resize", () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-
-            // Contador de cuenta regresiva
-            const eventDate = new Date("March 1, 2025 16:00:00").getTime();
-
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = eventDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                const countdownText = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
-
-                document.getElementById("countdown").innerHTML = `Faltan: ${countdownText}`;
-
-                if (distance < 0) {
-                    document.getElementById("countdown").innerHTML = "¡Es hora de la fiesta!";
-                }
-            }
-
-            setInterval(updateCountdown, 1000);
-        }
-
-        // Iniciar los iconos Feather
-        feather.replace();
-    </script>
 </body>
 </html>
